@@ -1,66 +1,69 @@
 ---
 id: auth1-02
-title: Аутентификация
-sidebar_label: Часть II
+title: Authentication
+sidebar_label: Part II
 ---
-Во-первых стандартный UI от Amplify далеко не всегда удовлетворяет UX приходящий со стороны заказчика
+Firstly, the standard UI from Amplify does not always satisfy the UX coming from the customer
 
-Во-вторых в [официальной документации](https://aws-amplify.github.io/docs/js/react#note-on-jwt-storage) Amplify написано:
+Secondly, in the [official documentation] (https://aws-amplify.github.io/docs/js/react#note-on-jwt-storage) Amplify says:
 
 > Data is stored unencrypted when using standard storage adapters (localStorage in the browser and AsyncStorage on React Native). Amplify gives you the option to use your own storage object to persist data. With this, you could write a thin wrapper around libraries like:
 react-native-keychain
 react-native-secure-storage
 Expo’s secure store
 
-Это значит, что данные аутентификации хранятся в не зашифрованном виде, а это риск 🕷 информационной безопасности с возможными негативными последствиями 🕸, поэтому мы решим эти две задачи в этой части.
+This means that the authentication data is stored in an unencrypted form, and this is a risk 🕷 of information security with possible negative consequences 🕸, so we will solve these two problems in this part.
 
-Весь код для этой части можно найти на [GitHub](https://github.com/react-native-village/aws-amplify-react-hooks/tree/master/examples/reactNativeCRUDv2).
+All code for this part can be found on [GitHub](https://github.com/react-native-village/aws-amplify-react-hooks/tree/master/examples/reactNativeCRUDv2).
 
-[![AWS Amplify](/img/auth/00.gif)](https://youtu.be/CM_M5cNLmK4)
+![cognito](/img/auth/01.png)
 
 ![Step01](/img/steps/01.png)
 ## UI Kit
-Мы будем использовать наш UI Kit, но вы можете легко заменить его своим или любым другим.
+We will use our UI Kit, but you can easily replace it with yours or any other.
 
-Подключаем библиотеку компонентов согласно [этой](https://react-native-village.github.io/docs/unicorn00) статьи.
+We connect the component library according to [this](https://react-native-village.github.io/docs/unicorn00) article.
 
 
 ![Step02](/img/steps/02.png)
-## Навигация react-navigation
-Ставим навигацию react-navigation 5, также как написано [здесь](https://reactnavigation.org/docs/getting-started/) (на момент написание этой статьи):
+## Navigation react-navigation
+We set the react-navigation 5 navigation, as it is written [here](https://reactnavigation.org/docs/getting-started/) (at the time of this writing):
+
 
 ```bash
 yarn add react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view @react-navigation/stack
 ```
 
-Добавляем поды под iOS
+Add pods for iOS
 
 ```bash
 cd ios && pod install && cd ..
 ```
 
-📌 Рекомендую после каждой установки запускать приложение под iOS и Android, чтобы потом не искать библиотеку из-за которой приложение падает.
+
+<div class="alert alert--info" role="alert">
+📌 I recommend that after each installation, launch the application for iOS and Android, so as not to search for the library because of which the application crashes.
+</div>
 
 
 ![Step03](/img/steps/03.png)
 ## react-native-keychain
 
-Ставим библиотеку react-native-keychain - это безопасное хранилище ключей react-native-keychain для React Native.
+We put the react-native-keychain library - this is the safe react-native-keychain key store for React Native.
 
 ```bash
 yarn add react-native-keychain
 ```
 
-Добавляем поды под iOS
+Add pods for iOS
 
 ```bash
 cd ios && pod install && cd ..
 ```
+According to what [official documentation](https://aws-amplify.github.io/docs/js/authentication#managing-security-tokens) tells us:
+> When using authentication with AWS Amplify, you don’t have to update Amazon Cognito tokens manually. Tokens are automatically updated by the library when necessary. Security tokens, such as IdToken or AccessToken, are stored in localStorage for the browser and in AsyncStorage for React Native. If you want to store these tokens in a more secure place or use Amplify on the server side, you can provide your own storage object for storing these tokens.
 
-Согласно тому, что нам говорит [официальная документация](https://aws-amplify.github.io/docs/js/authentication#managing-security-tokens):
-> При использовании аутентификации с AWS Amplify вам не нужно обновлять токены Amazon Cognito вручную. Токены автоматически обновляются библиотекой при необходимости. Токены безопасности, такие как IdToken или AccessToken, хранятся в localStorage для браузера и в AsyncStorage для React Native. Если вы хотите хранить эти токены в более безопасном месте или используете Amplify на стороне сервера, вы можете предоставить свой собственный объект хранения для хранения этих токенов.
-
-конфигурируем наш src/index.js
+configure src / index.js
 
 ```jsx
 import React from 'react'
@@ -121,9 +124,9 @@ export default App
 ```
 
 ![Step04](/img/steps/04.png)
-##  Константы
+## Constants
 
-Чтобы не копипастить одни и те же значения, мы создаем файл с константами для общего использования в компонентах src/constants.js
+In order not to copy the same values, we create a file with constants for general use in src / constants.js components
 
 ```jsx
 import { Dimensions } from 'react-native'
@@ -172,7 +175,7 @@ export const goHome = navigation => () => navigation.popToTop()()
 
 ![Step05](/img/steps/05.png)
 ## AppNavigator
-Создаем файл с конфигурацией навигации для нашей кастомной аутентификации src/AppNavigator.js
+Create a navigation configuration file for our custom authentication src / AppNavigator.js
 
 ```jsx
 import * as React from 'react'
@@ -199,20 +202,19 @@ export default AppNavigator
 
 ![Step06](/img/steps/06.png)
 ## Hello screen
-
-Создаем точку входа для нашых экранов аутентификации src/screens/Authenticator/index.js
+Create an entry point for our src/screens/Authenticator/index.js authentication screens
 
 ![Hello screen](/img/auth/auth1-04.png)
 
-Где для начала мы подключаем экран приветствия
+Where to start we connect the welcome screen
+
 
 ```jsx
 export * from './Hello'
 ```
+After we create it src/screens/Authenticator/Hello/index.js
 
-После создаем его src/screens/Authenticator/Hello/index.js
-
-В хуке useEffect мы выполняем проверку на наличие токена пользователя, где в случае true мы отправляемся на экран User, а в случае false остаемся на этом экране.
+In the useEffect hook, we check for a user token, where in the case of true we go to the User screen, and in the case of false, we remain on this screen.
 
 ```jsx
 import React, { useEffect, useState } from 'react'
@@ -258,13 +260,13 @@ const Hello = ({ navigation }) => {
 
 export { Hello }
 ```
-Собираем приложение и встречаем экран приветствия.
+
+We collect the application and meet the welcome screen.
 
 
 ![Step07](/img/steps/07.png)
 ## SignUp screen
-
-Создаем экран регистрации SIGN_UP src/screens/Authenticator/SignUp/index.js , где для аутентификации мы используем метод [Auth.signUp](https://aws-amplify.github.io/docs/js/authentication#sign-up)
+We create the registration screen SIGN_UP src/screens/Authenticator/SignUp/index.js, where for authentication we use the [Auth.signUp](https://aws-amplify.github.io/docs/js/authentication#sign-up) method.
 
 ![SignUp](/img/auth/auth1-05.png)
 
@@ -374,7 +376,7 @@ export { SignUp }
 ![Step08](/img/steps/08.png)
 ## ConfirmSignUp screen
 
-После успешного ответа с сервера, мы переходим на экран подтверждения и ввода кода, пришедшего нам на почту. Для этого создаем экран CONFIRM_SIGN_UP src/screens/Authenticator/ConfirmSignUp/index.js
+After a successful response from the server, we go to the confirmation screen and enter the code that came to our mail. To do this, create the screen CONFIRM_SIGN_UP src/screens/Authenticator/ConfirmSignUp/index.js
 
 ![ConfirmSignUp](/img/auth/auth1-06.png)
 
@@ -461,14 +463,14 @@ const ConfirmSignUp = ({ route, navigation }) => {
 export { ConfirmSignUp }
 ```
 ## ResendSignUp
-Если код не пришел, то мы должны предоставить пользователю возможность отправить код повторно. Для этого на кнопку Resend code? мы вешаем метод Auth.resendSignUp(userInfo.email)
-В случае успешного вызова метода
+If the code has not arrived, then we must provide the user with the opportunity to resend the code. To do this, on the button Resend code? we hang up the Auth.resendSignUp method (userInfo.email)
+In case of a successful method call
 
 ```jsx
 Auth.confirmSignUp(email, code, { forceAliasCreation: true })
 ```
 
-мы должны вызывать метод
+we must call the method
 ```jsx
 Auth.signIn(email, password)
 ```
@@ -476,7 +478,7 @@ Auth.signIn(email, password)
 
 ![Step09](/img/steps/09.png)
 ## User screen
-В случае успеха переходим на экран USER, который мы создаем c кнопкой выхода из приложения и очисткой токенов src/screens/Authenticator/User/index.js
+If successful, go to the USER screen, which we create with the exit button for the application and clearing the src/screens/Authenticator/User/index.js tokens
 
 ![User screen](/img/auth/auth1-07.png)
 
@@ -524,7 +526,7 @@ export { User }
 ![Step10](/img/steps/10.png)
 ## SignIn screen
 
-После того, как зарегистрировали пользователя, мы должны предоставить юзеру возможность войти в приложение через логин и пароль. Для этого мы создаем экран SIGN_IN src/screens/Authenticator/SignIn/index.js
+After the user is registered, we must provide the user with the opportunity to enter the application through login and password. To do this, we create the SIGN_IN src/screens/Authenticator/SignIn/index.js screen
 
 ![SignIn screen](/img/auth/auth1-08.png)
 
@@ -624,12 +626,11 @@ export { SignIn }
 
 ![Step11](/img/steps/11.png)
 ## Forgot password screen
-
-В случае успеха, мы отправляем юзера на экран USER, который мы уже ранее сделали, а если юзер забыл или не правильно ввел пароль, то мы показываем ошибку Forgot Password? и предлагаем сбросить пароль.
+If successful, we send the user to the USER screen, which we have already done, and if the user has forgotten or entered the password incorrectly, then we show the Forgot Password error and suggest resetting the password.
 
 ![Forgot password](/img/auth/auth1-09.png)
 
-Для этого мы создаем экран FORGOT src/screens/Authenticator/Forgot/index.js
+To do this, we create the FORGOT src/screens/Authenticator/Forgot/index.js screen
 
 ![Forgot password](/img/auth/auth1-10.png)
 
@@ -695,7 +696,7 @@ export { Forgot }
 ![Step12](/img/steps/12.png)
 ## Forgot Password Submit
 
-После подтверждения e-mail, мы вызываем метод Auth.forgotPassword(email) и в случае, если такой юзер есть, то отправляем пользователя на экран FORGOT_PASSWORD_SUBMIT src/screens/Authenticator/ForgotPassSubmit/index.js
+After confirming the e-mail, we call the Auth.forgotPassword (email) method and if there is such a user, we send the user to the FORGOT_PASSWORD_SUBMIT src/screens/Authenticator/ForgotPassSubmit/index.js screen
 
 ![ForgotPassSubmit](/img/auth/auth1-11.png)
 
@@ -796,18 +797,18 @@ const ForgotPassSubmit = ({ route, navigation }) => {
 export { ForgotPassSubmit }
 ```
 
-где после ввода кода, отправленного на почту, нового пароля и его подтверждения, мы вызываем метод смены пароля
+where, after entering the code sent to the mail, the new password and confirming it, we call the password change method
 
 ```jsx
 Auth.forgotPasswordSubmit(email, code, password)
 ```
 
-успех которого отправляет юзера на экран USER.
+whose success sends the user to the USER screen.
 
 ![Step13](/img/steps/13.png)
-## Связывание экранов
+## Linking screens
 
-Подключаем все созданые компоненты в src/screens/Authenticator/index.js
+We connect all created components in src/screens/Authenticator/index.js
 
 ```jsx
 export * from './Hello'
@@ -822,7 +823,7 @@ export * from './ConfirmSignUp'
 ![Step14](/img/steps/14.png)
 ## Udpate AppNavigator
 
-Обновляем файл конфигурации навигации:
+Updating the navigation configuration file:
 
 ```jsx
 import * as React from 'react'
@@ -856,18 +857,18 @@ export default AppNavigator
 ![Step15](/img/steps/15.png)
 ## Clean Up
 
-Так как мы используем кастомную тему, то удаляем компоненты  AmplifyTheme и Localei18n
+Since we use a custom theme, we remove the components AmplifyTheme and Localei18n
 
 ![Step16](/img/steps/16.png)
 ## Debug
 
-Для того, чтобы понимать, что происходит с токенами в вашем приложении, добавьте в корневой /index.js
+In order to understand what happens with tokens in your application, add in the root/index.js
 
 ```jsx
 window.LOG_LEVEL = 'DEBUG'
 ```
 
-Запускаем приложение и получаем кастомную аутентификацию.
+We launch the application and get custom authentication.
 
 ## Done ✅
 

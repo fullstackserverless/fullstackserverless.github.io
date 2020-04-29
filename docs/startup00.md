@@ -5,7 +5,7 @@ sidebar_label: Introduction
 ---
 > We are full stack serverless developers, we are creating a mobile application for stack serverless developers. 
 
-Startup Support Chat: [Discord](https://teleg.run/reactnativeunicorn)
+Startup Support Chat: [Discord](https://discord.gg/Ntuttww)
 
 Where I invite volunteers, from Junior level, to its creation.
 

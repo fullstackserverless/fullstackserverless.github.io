@@ -3,79 +3,67 @@ id: amplify-01
 title: Serverless
 sidebar_label: Serverless
 ---
-Создание бэкенда на AWS Amplify (DataStore + AppSync) — это работа с бессерверной (англ. serverless) технологией, поэтому перед тем, как продолжить писать код, мы с вами разберемся с тем, что такое бессерверные вычисления и в чем их преимущества над серверными.
+Creating a backend on AWS Amplify (DataStore + AppSync) is working with serverless technology, so before we continue to write code, we will understand what serverless computing is and what are their advantages over server computing.
 
-Прогноз ученых мужей из университета Berkeley о том как будут развиваться бэкенд технологии:
+Prediction of pundits from Berkeley University on how technology backend will evolve:
 
-> Предоставляя упрощенную среду программирования, бессерверные вычисления значительно упрощают использование облака, тем самым привлекая больше людей, которые могут и будут его использовать. Бессерверные вычисления включают в себя предложения FaaS и BaaS и знаменуют собой важный этап развития облачного программирования. Это избавляет от необходимости ручного управления ресурсами и их оптимизации, которые сегодняшние серверные вычисления навязывают разработчикам приложений, что походит на переход от языка ассемблера к языкам высокого уровня более четырех десятилетий назад.
+> By providing a simplified programming environment, serverless computing greatly simplifies the use of the cloud, thereby attracting more people who can and will use it. Serverless computing includes FaaS and BaaS offerings and marks an important stage in the development of cloud programming. This eliminates the need for manual resource management and optimization, which today's server computing imposes on application developers, which is like moving from assembly language to high-level languages ​​more than four decades ago.
 
-> Мы прогнозируем, что использование без серверов будет стремительно расти. Мы также прогнозируем, что локальные гибридные облачные приложения со временем будут сокращаться, хотя некоторые развертывания могут сохраняться из-за нормативных ограничений и правил управления данными.
+> We predict that server-less usage will grow rapidly. We also predict that on-premises hybrid cloud applications will decline over time, although some deployments may persist due to regulatory restrictions and data management rules.
 
-> Бессерверные вычисления станут стандартной вычислительной парадигмой в эпоху облаков, в значительной степени, заменив серверные вычисления и тем самым закрыв эру клиент-сервер.
-
-[Cloud Programming Simplified: A Berkeley View on Serverless Computing](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2019/EECS-2019-3.pdf)
-
-## Бессерверные вычисления
-
-Естественная для облака архитектура, которая позволяет передать большую часть операционной ответственности AWS и тем самым получить больше гибкости и инновационных возможностей. Бессерверные вычисления позволяют создавать и запускать приложения и сервисы, не беспокоясь о серверах. Они устраняют необходимость заниматься вопросами управления инфраструктурой — такими, например, как выделение серверов или кластеров, необходимых ресурсов, а также установка исправлений и обслуживание операционной системы. Их можно использовать практически для любого типа приложений или сервисов серверной части, при этом всё, что требуется для запуска и масштабирования приложения с высокой доступностью, выполняется без вмешательства клиента.
-
-> В нашем определении, чтобы услуга считалась беcсерверной, она должна автоматически масштабироваться без необходимости явной инициализации и оплачиваться в зависимости от использования.
+> Serverless computing will become the standard computing paradigm in the cloud era, largely replacing server computing and thereby closing the client-server era.
 
 [Cloud Programming Simplified: A Berkeley View on Serverless Computing](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2019/EECS-2019-3.pdf)
 
-Если очень по простому, то бессерверные (Serverless) означает не физическое отсутствие серверов, а отсутствие головной боли по управлению инфраструктурой и ее обслуживания.
+If very simple, then Serverless means not the physical absence of servers, but the absence of a headache in managing the infrastructure and its maintenance.
 
 
-# Преимущества бессерверной архитектуры:
+# Advantages of serverless architecture:
 
-В наше время существует множество способов создания приложения. Решения, которые принимаются на раннем этапе, могут и будут влиять не только на жизненный цикл приложения, но и на команды разработчиков и, в конечном счете, на компанию или организацию. В этой статье я выступаю за и излагаю способы создания ваших приложений с использованием бессерверных технологий и методологий. Но каковы преимущества создания приложения таким образом, и почему бессерверность становится настолько популярной?
+Nowadays, there are many ways to create an application. The decisions that are made at an early stage can and will affect not only the application life cycle, but also the development teams and, ultimately, the company or organization. In this article, I advocate for and outline ways to build your applications using serverless technologies and methodologies. But what are the advantages of creating an application in this way, and why is serverlessness becoming so popular?
 
 
-## Один язык программирования
+## One programming language
 
-С помощью современных инструментов и методологий, таких как AWS Amplify, один разработчик может использовать свой существующий набор навыков и знания единой платформы и экосистемы (например, JavaScript) для создания масштабируемых приложений, в комплекте со всеми функциями, которые в прошлом потребовались бы команды высококвалифицированных бэкэнд программистов и инженеров DevOps для сборки и обслуживания.
+Using modern tools and methodologies such as AWS Amplify, one developer can use their existing set of skills and knowledge of a single platform and ecosystem (for example, JavaScript) to create scalable applications, complete with all the functions that a highly qualified backend team would need in the past DevOps programmers and engineers for assembly and maintenance.
 
-## Меньше кода
+## Less code
 
-Единственное, что имеет ценность — это функция, которую предоставляет код, а не сам код. Когда вы находите способы предоставления этих функций, одновременно ограничивая объем поддерживаемого кода и даже полностью отказываясь от кода, вы снижаете общую сложность своего приложения.
-Чем меньше сложностей, тем меньше ошибок, проще для новых инженеров и в целом меньше когнитивная нагрузка для тех, кто поддерживает и добавляет новые функции.
-Разработчик может подключиться к этим сервисам и реализовать функции, не зная о фактической внутренней реализации, и практически не имея внутреннего кода.
+The only thing that has value is the function that the code provides, not the code itself. When you find ways to provide these functions, while limiting the amount of supported code and even completely abandoning the code, you reduce the overall complexity of your application.
+The fewer difficulties, the less errors, easier for new engineers and generally less cognitive load for those who support and add new features.
+A developer can connect to these services and implement functions without knowing the actual internal implementation, and with virtually no internal code.
 
-## Отсутствие необходимости управлять серверами
+## No need to manage servers
 
-Не нужно выделять сервера или обслуживать их. Не требуется установка, обслуживание или администрирование программного обеспечения или среды выполнения.
+No need to allocate servers or maintain them. No installation, maintenance, or administration of software or runtime is required.
 
-## Масштабируемость
+## Scalability
 
-Одним из основных преимуществ отсутствия сервера является масштабируемость из коробки. При создании приложения вам не нужно беспокоиться о том, что произойдет, если ваше приложение станет чрезвычайно популярным, и вы подключите большее количество новых пользователей, и облачный провайдер справится с этим за вас.
-Облачный провайдер автоматически масштабирует ваше приложение, выполняя код в ответ на каждое взаимодействие. В бессерверной функции ваш код выполняется параллельно и индивидуально обрабатывает каждый триггер (в свою очередь масштабируется с учетом размера рабочей нагрузки).
-Нет необходимости беспокоиться о масштабировании ваших серверов и баз данных.
+One of the main advantages of not having a server is scalability out of the box. When creating an application, you don’t need to worry about what happens if your application becomes extremely popular and you connect more new users and the cloud provider will handle it for you.
+The cloud provider automatically scales your application by executing code in response to each interaction. In a serverless function, your code is executed in parallel and individually processes each trigger (in turn, it scales to fit the size of the workload).
+No need to worry about scaling your servers and databases.
 
-## Скорость разработки
+## Development speed
 
-При меньшем количестве функций скорость разработки увеличивается. Возможность быстрого развертывания типов функций, которые типичны для большинства приложений (базы данных, аутентификация, хранилище, API-интерфейсы), и при гораздо меньших предварительных затратах времени позволяет быстрее приступить к написанию основных функций и бизнес-логики для функции, которые вы хотите доставить конечному клиенту.
+With fewer features, development speed increases. The ability to quickly deploy the types of functions that are typical for most applications (databases, authentication, storage, APIs), and with much less preliminary time, allows you to quickly start writing the basic functions and business logic for the function that you want to deliver to the final to the customer.
 
-## Эксперименты
-Если вы не тратите много времени на создание повторяющихся функций, вы можете экспериментировать легче и с меньшим риском.
-При отправке новой функции вы часто оцениваете риск (время и деньги, связанные с созданием этой функции) с возможным возвратом инвестиций (ROI). Поскольку риск, связанный с испытанием новых вещей, снижается, вы можете испытать идеи, которые в прошлом, возможно, не видели свет.
-Мы также можем гораздо проще протестировать различные идеи.
+## Experiments
+If you don't spend a lot of time creating repetitive functions, you can experiment more easily and with less risk.
+When sending a new function, you often evaluate the risk (time and money associated with the creation of this function) with a possible return on investment (ROI). As the risk of trying new things is reduced, you can try out ideas that you might not have seen in the past.
+We can also test different ideas much easier.
 
-## Безопасность и стабильность
-Поскольку услуги, на которые вы подписываетесь, являются основной компетенцией поставщика услуг, вы получаете что-то гораздо более отточенное и обычно более безопасное, чем вы могли бы создать сами.
-Представьте себе компанию, основная бизнес-модель которой сосредоточена на предоставлении первичной услуги аутентификации и которая уже много лет использует ее, решая и устраняя проблемы для тысяч компаний и клиентов.
-Теперь представьте, что вы пытаетесь воспроизвести такой сервис в своей собственной команде или организации. Хотя это вполне возможно и осуществимо, есть вероятность, что выбор службы, созданной и поддерживаемой людьми, единственная задача которых состоит в том, чтобы создать и поддерживать эту точную вещь, является более безопасной и надежной ставкой.
-Другой основной задачей этих поставщиков услуг является просто минимальное время простоя. Это означает, что они берут на себя бремя не только создания, развертывания и обслуживания этих сервисов, но и делают все возможное, чтобы обеспечить их стабильность и устойчивость.
+## Security and stability
+Since the services you subscribe to are the core competency of the service provider, you get something much more refined and usually more secure than you could create yourself.
+Imagine a company whose main business model is focused on providing primary authentication services and that has been using it for many years, solving and eliminating problems for thousands of companies and customers.
+Now imagine that you are trying to reproduce such a service in your own team or organization. Although this is entirely possible and feasible, it is likely that the choice of a service created and maintained by people whose sole task is to create and maintain this exact thing is a safer and more reliable bet.
+Another primary concern of these service providers is simply minimal downtime. This means that they take the burden of not only creating, deploying and maintaining these services, but also do everything possible to ensure their stability and sustainability.
 
-## Автоматический контроль доступности
-Бессерверные вычисления обеспечивают встроенную высокую доступность и отказоустойчивость. Эти возможности не требуется специально проектировать, поскольку сервисы, запускающие приложение, предоставляют их по умолчанию.
+## Automatic availability control
+Serverless computing provides built-in high availability and fault tolerance. These features do not need to be specifically designed, since the services that run the application provide them by default.
 
-## Стоимость
-При традиционном подходе вы часто платите за вычислительные ресурсы независимо от того, используются они или нет. Это означает, что если вы хотите убедиться в том, что ваше приложение будет масштабироваться, вам необходимо подготовиться к самой большой рабочей нагрузке, которую вы могли бы увидеть, независимо от того, достигла ли она этого уровня. В конце концов, этот традиционный подход означал, что вы платите за неиспользованные ресурсы большую часть срока службы вашего приложения.
-С бессерверными технологиями вы платите только за то, что используете. С FaaS (Function-as-a-Service) вам выставляется счет на основании количества запросов на ваши функции и времени, которое требуется для выполнения кода вашей функции. С такими управляемыми сервисами, как Amazon Rekognition, вы платите только за обработанные изображения, минуты обработки видео и т. д., Опять же, платя только за то, что вы используете.
-Счет от вашего облачного провайдера — это только часть общей стоимости вашей облачной инфраструктуры, а также заработная плата. Эта стоимость уменьшается, если у вас меньше оперативных ресурсов.
-Есть также затраты на разработку. Создание приложений таким способом ускоряет вывод на рынок, сокращая общее время разработки и, следовательно, стоимость разработки.
-Вообщем вы платите за стабильную пропускную способность или время исполнения, а не за количество используемых серверов.
+## Cost
+In the traditional approach, you often pay for computing resources, regardless
 
-Подробнее о ценах [здесь](https://aws.amazon.com/ru/appsync/pricing/)
+Read more about prices [here](https://aws.amazon.com/en/appsync/pricing/)
 
 [![Become a Patron!](/img/logo/patreon.png)](https://www.patreon.com/bePatron?u=34467235)

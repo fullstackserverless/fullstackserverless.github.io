@@ -3,29 +3,29 @@ id: amplify-04
 title: DataStore - CRUD (Create Read Update Delete)
 sidebar_label: DataStore - CRUD
 ---
-## Прощай Redux, MobX, Apollo! Грань между бэкендом и фронтендом сломана! Инновационый шаг эволюции стейт менеджеров.
+# Goodbye Redux, MobX, Apollo! 
+The line between the backend and the frontend is broken! An innovative step in the evolution of state managers.
 
-![DataStore](https://miro.medium.com/max/4800/1*wg1FWMJj2f1NB6CkIqKNFw.png)
+![DataStore](/img/dataStore/00.png)
 
+One of the most difficult tasks in developing web and mobile applications is to synchronize data between devices and perform offline operations. Ideally, when the device is offline, your customers should be able to continue to use your application not only to access data, but also to create and modify it. When the device returns online, the application must reconnect to the backend, synchronize the data and resolve conflicts, if any. Correct handling of all extreme cases requires a lot of undifferentiated code, even when using the AWS AppSync SDK cache on a device with autonomous mutations and delta synchronization.
 
-Одна из самых сложных задачах при разработке веб и мобильных приложений - это синхронизация данных между устройствами и выполнение автономных операции. В идеале, когда устройство находится в автономном режиме, ваши клиенты должны иметь возможность продолжать использовать ваше приложение не только для доступа к данным, но также для их создания и изменения. Когда устройство возвращается в оперативный режим, приложение должно повторно подключиться к бэкэнду, синхронизировать данные и разрешить конфликты, если таковые имеются. Для правильной обработки всех крайних случаев требуется много недифференцированного кода, даже при использовании кэша AWS AppSync SDK на устройстве с автономными мутациями и дельта-синхронизацией.
+Amplify DataStore provides persistent storage on the device for recording, reading and monitoring data changes if you are connected to the Internet or offline, and also makes it easy to synchronize data with the cloud and between devices.
 
-Amplify DataStore предоставляет постоянное хранилище на устройстве для записи, чтения и наблюдения за изменениями данных, если вы подключены к Интернету или в автономном режиме, а также позволяет легко синхронизировать данные с облаком и между устройствами.
+Amplify DataStore allows developers to write applications using distributed data without writing additional code for an offline or online script.
 
-Amplify DataStore позволяет разработчикам писать приложения, используя распределенные данные, без написания дополнительного кода для автономного или онлайн-сценария.
+You can use the Amplify DataStore for offline use in local-only mode without an AWS account or provide the entire backend using AWS AppSync and Amazon DynamoDB.
 
-Вы можете использовать Amplify DataStore для автономного использования в режиме «только локальный» без учетной записи AWS или предоставить весь бэкэнд с помощью AWS AppSync и Amazon DynamoDB.
+The DataStore includes Delta Sync using your GraphQL backend and several conflict resolution strategies.
 
-DataStore включает в себя Delta Sync с использованием вашего бэкенда GraphQL и несколько стратегий разрешения конфликтов.
+## Advantages of AWS Amplify DataStore over Redux, MobX, Apollo, Relay, selectors:
+Comparing AWS Amplify with Redux, MobX is not correct, since AWS Amplify is not only a state manager, but also a client-server, so in the client-server class we will compare it with Apollo and Relay.
 
-## Преимущества DataStore от AWS Amplify над Redux, MobX, Apollo, Relay, селектрорами, деселекторами и прочими флаксами:
-Сравнивать AWS Amplify с Redux, MobX не корректно, так как AWS Amplify это не только стейт-менеджер, но и клиент-сервер, поэтому в классе клиент-сервер мы будем сравнивать его с Apollo и Relay.
-
-## 1. Real time из коробки.
-Не думаю, что можно считать бизнес серьезным, если у его мобильного приложения отсустствуют события подписок реализованых на технологии web sockets.
-А многие ли приложения в наше время работают на web sockets?
-Думаю нет, по причине того, что real time это дополнительная работа разработчиков на бэке и фронтенде.
-Для нас же, [fullStack serverless](https://react-native-village.github.io/docs/amplify-01) разработчиков на AWS Amplify, real time идет из коробки, как на фронте так и на бэке и нам не надо писать код реализации для интеграции вэбсокетов на каждую модель, так как он генерируется автоматически, также как и написание документации для всего нашего сгенерированого кода, имплементированого в наш проект на основоании инструкции GraphQL схемы. Чтобы не пугать громкими словами, я покажу вам пример, из [прошлого урока](https://react-native-village.github.io/docs/amplify-03), того как в AWS Amplify определяется Store:
+## 1. Real time out of the box.
+I don’t think that a business can be considered serious if his mobile application is not affected by subscription events implemented using web sockets technology.
+And how many applications nowadays work on web sockets?
+I think not, due to the fact that real time is an additional work of developers on the back and front-end.
+For us, [fullStack serverless](https://fullstackserverless.github.io/docs/amplify-01) developers on AWS Amplify, real time goes out of the box, both on the front and on the back and we don’t we need to write an implementation code for integrating web sockets for each model, since it is generated automatically, as well as writing documentation for all of our generated code, implemented in our project based on the GraphQL schema instruction. In order not to scare with big words, I will show you an example from [the last lesson](https://fullstackserverless.github.io/docs/amplify-03), how Store is defined in AWS Amplify:
 
 ```graphql
 type Job
@@ -42,72 +42,66 @@ type Job
   owner: String
 }
 ```
+This determines the model in the store, not only for the frontend, but also for the backend. One source of truth for frontend and backend. Yes, yes, I see that I will repeat it more than once in my life, since this is a killer feature and punch line vs Redux, MobX, Apollo, Relay.
 
-  Так определяется модель в сторе, не только для фронтенда, но и для бэкенда. Один источник правды для фронтенда и для бэкенда. Да да, вижу я, что еще не раз повтою это в своей жизни, так как это киллер фича и панч лайн vs Redux, MobX, Apollo, Relay.   
+It is this architecture, which is different from Redux, MobX, Apollo, that erases the line between the backend and frontend. And puts AWS Amplify DataStore over everyone
 
-  Вот именно эта отличная от Redux, MobX, Apollo архетектура, стерает грань меджду бэкендом и фронтендом. И ставит AWS Amplify DataStore над всеми
+If you are from the backend, then you no longer need to write resolvers to the database and drag subscriptions to each data model.
 
-  Все!!!
-  Если вы с бэкенда, то вам больше не нужно писать резолверы к базе данных и тащить подписки на каждую модель данных.
+Serverless - this is when the backend developers came to learn the frontend, as their services are needed exclusively for projects that do not keep up with the times, and from which they do not live real time.
 
-  Serverless - это когда разрабочикам бэкенда пришла пора учить фронтенд, так как их услуги нужны исключительно легаси проектам, не шагающим в ногу со временем, от чего и не живущими real time.
-
-## 2. Генерация кода.
-Что такое кодогенерация вы можете прочитать и без меня в википедии, если конечно же не знаете его значения, которое и в этом панче напоминает нам о себе.
-Old schoolщик?
-Юзаем fetch  или axios?
-Отправляя запросы в дремучий лес API, который еще и сами пишим в связке с Redux, MobX, Apollo, Relay.
-Так вот вам еще одна новость дня!
-Вам больше не нужно писать эти запросы к API, вам их нужно только вызвать.
-Это значит, что больше не нужно создовать эту немаленькую папочку с кодом запроса к серверу, так как в AWS Amplify DataStore они также генерируются в вашем проекте на основании вашего стора, определенго все той же GraphQL схемы их первого пункта. И вполняется это одной командой:
+## 2. Code generation.
+What is code generation you can read without me on Wikipedia, unless of course you know its meaning, which in this punch reminds us of yourself.
+Use fetch or axios?
+By sending requests to the deep forest API, which we also write in conjunction with Redux, MobX, Apollo, Relay.
+So here is another news of the day!
+You no longer need to write these API calls, you only need to call them.
+This means that you no longer need to create this rather big daddy with the server request code, since in AWS Amplify DataStore they are also generated in your project based on your store, defined by the very same GraphQL diagram of their first item. And this is filled with one command:
 
 ```bash
 npm run amplify-modelgen
 ```
-В итоге получаем папку models с генерированным кодом.
+As a result, we get the models folder with the generated code.
 
 ![DataStore](/img/dataStore/dataStore09.png)
 
-И папка graphql после пуша на сервер, со всем запросом во Flow, TS или ваниле JavaScript.
+And the graphql folder after pushing to the server, with all the request in Flow, TS or vanilla JavaScript.
 
 ![DataStore](/img/dataStore/dataStore08.png)
 
 
 ## 3. Offline data & cloud sync
-Не нужно писать дополнительный код, для отправки запроса на сервер, после выхода приложения в онлайн.
-Иногда вы попадаете в ненадежную ситуацию, но вам лучше подождать дольше, чем явно провалить операцию.
-У Apollo есть apollo-link-retry который обеспечивает экспоненциальный откат и запросы на сервер между попытками по умолчанию. Правда он (в настоящее время) не обрабатывает повторы для ошибок GraphQL в ответе, только для сетевых ошибок.
-У Redux, MobX понятное дело под капотом этого решения нет так как они не клиенты и приходится задествовать сторние мидлвари, по причине того, что REST как дедешка на пенсии с поддержкой любымых внуков. Подробный разбор [GraphQL vs REST](https://react-native-village.github.io/docs/amplify-02).
-У AWS Amplify DataStore есть не только аналог apollo-link-retry , но и встроенная в него и настраиваемая привычную знакомая модель программирования с автоматическим контролем версий, обнаружением конфликтов и разрешением в облаке.
+No need to write additional code to send a request to the server after the application is online.
+Sometimes you find yourself in an unreliable situation, but you better wait longer than obviously fail the operation.
+Apollo has apollo-link-retry which provides exponential rollback and server requests between default attempts. True, he (currently) does not handle retries for GraphQL errors in the response, only for network errors.
+Redux, MobX, of course, does not have this solution under the hood, since they are not clients and you have to use third-party middleware, because REST is like a retired grandfather with the support of any grandchildren. Detailed analysis of [GraphQL vs REST](https://fullstackserverless.github.io/docs/amplify-02).
+AWS Amplify DataStore has not only an analog of apollo-link-retry, but also a built-in and customizable familiar programming model with automatic version control, conflict detection and resolution in the cloud.
 
 
-Из минусов AWS Amplify хочу назвать то, что хуки Apollo c его loading и error из коробки сокращают количество написаного кода на фронте, поэтому написал open source [библиотеку](https://github.com/react-native-village/aws-amplify-react-hooks), которая решает это недоразумение.
+Among the disadvantages of AWS Amplify, I want to mention that Apollo hooks with its loading and error out of the box reduce the amount of code written on the front.
 
 
-[Официальная документация](https://aws-amplify.github.io/docs/js/datastore)
+[Official documentation](https://aws-amplify.github.io/docs/js/datastore)
 
-В конце этого урока мы соберем с вами это мобильное приложение c испоользованием Amplify DataStore:
+At the end of this lesson we will collect with you this mobile application using the Amplify DataStore:
 
 ![dataStore](/img/dataStore/dataStore07.png)
 
-Поехали!
+# Go!
 
-Данный урок явлется продолжением урока по [аутентификции](https://react-native-village.github.io/docs/auth1-00), так как работа с DataStore будет выполняться аутентифицированым пользователем. Поэтому, если вы его не прошли, то вернитесь на шаг назад.
+Our AWS Amplify support chat [Discord](https://discord.gg/Ntuttww)
 
-Чат поддержки AWS Amplify: [Telegram](https://teleg.run/awsamplify)
-
-Финальный код этой части можно найти на [Github](https://github.com/fullstackserverless/startup/tree/datastore).
-
+The final code for this part can be found on [Github](https://github.com/fullstackserverless/startup/tree/datastore).
 
 ![Step01](/img/steps/01.png)
-## Клонируем репозиторий
-Если вы продолжаете прошлый урок, то можете сразу перейти к шагу 5
+## Clone the repository
+If you continue the last lesson, you can go directly to step 5.
 
 ```bash
 git clone https://github.com/fullstackserverless/startup.git
 ```
 
-Переходим в папку проекта
+Go to the project folder
 
 ```bash
 cd startup
@@ -123,50 +117,41 @@ or
 
 
 ![Step02](/img/steps/02.png)
-## Регистрируем свой AWS account
-Шаг для тех, кто еще не зарегистрирован на AWS
-Регестрируемся согласно [этой](https://aws-amplify.github.io/docs/) инструкции 📃 и по видеоучебнику📺 чекаем все 5 шагов.
+## Register your AWS account
+Step For Those Not Yet AWS Registered
+We register according to [this](https://aws-amplify.github.io/docs/) instructions 📃 and by the video tutorial ем we check all 5 steps.
 
-#### Внимание!!!
-
-Потребуется банковская карта 💳, где должно быть более 1$ 💵
-
-Там же смотрим и ставим Amplify Command Line Interface (CLI)
+<div class="alert alert--warning" role="alert">
+You need a bank card 💳, where should be more than 1$ 💵 
+There we look and put the Amplify Command Line Interface (CLI)
+</div>
 
 ![Step03](/img/steps/03.png)
-## Инициализация AWS Amplify в проект React Native
-
-В корневой директории проекта React Native инициализируем наш AWS Amplify проект
+## Initializing AWS Amplify in a React Native Project
+Initialize our AWS Amplify project in the root directory of the React Native project.
 
 ```bash
 amplify init
 ```
 
-Отвечаем на вопросы:
-
+We answer the questions:
 ![amplify init](/img/auth/auth02.png)
 
-Проект инициализацировался 🚀
+The project was initialized 🚀
 
 ![Step04](/img/steps/04.png)
-## Подключаем плагин аутентификации
+## Connect the authentication plugin
 
-Теперь, когда приложение находится в облаке, вы можете добавить некоторые функции, такие как предоставление пользователям возможности зарегистрироваться в нашем приложении и войти в систему.
+Now that the application is in the cloud, you can add some features, such as allowing users to register with our application and log in.
 
-Командой
-
+We connect the authentication function.
 ```bash
 amplify add auth
 ```
 
-подключаем функцию аутентификации. Выбираем конфигурацию по умолчанию. Это добавляет конфигурации ресурсов auth локально в ваш каталог ampify/backend/auth
-
-#### Выбираем профиль, который мы хотим использовать. default. Enter и как пользователи будут входить в систему. Email(За SMS списывают деньги).
-
-
 ![amplify init](/img/auth/auth03.png)
 
-Отправляем изменения в облако 💭
+Submitting changes to the cloud 💭
 
 ```bash
 amplify push
@@ -174,40 +159,41 @@ amplify push
 
 ✔ All resources are updated in the cloud
 
-Собераем проект и проверяем работоспособность аутентификации.
+We collect the project and check the operation of authentication.
 
 ![Hello screen](/img/auth/auth1-04.png)
 
 ![Step05](/img/steps/05.png)
 ## ampify-app
 
-Самый быстрый способ начать работу c DataStore - использовать npx-скрипт ampify-app.
+The fastest way to get started with the DataStore is to use the npx script ampify-app.
 
 ```bash
 npx amplify-app@latest
 ```
 
 ![Step06](/img/steps/06.png)
-## Установка зависимостей
+## Installing dependencies
 
-Подробная установка [здесь](https://aws-amplify.github.io/docs/js/datastore#setup)
+Detailed installation [here](https://aws-amplify.github.io/docs/js/datastore#setup)
 
-Если у вас React Native Cli, то
+If you have a React Native Cli, then
+
 
 ```bash
 yarn add @aws-amplify/datastore @aws-amplify/core @react-native-community/netinfo @react-native-community/async-storage
 ```
 
-И если вы используете React Native> 0.60, то выполните следующую команду для iOS:
+And if you use React Native> 0.60, then run the following command for iOS:
 
 ```bash
 cd ios && pod install && cd ..
 ```
 
 ![Step07](/img/steps/07.png)
-## Подключаем плагин API(App Sync)
-Если подключали его в [прошлом уроке](https://react-native-village.github.io/docs/amplify-03), то пропускаем этот шаг.
-Если нет то, подключаем плагин API
+## Connecting the API plugin (App Sync)
+If you connected it in [the last lesson](https://fullstackserverless.github.io/docs/amplify-03), then skip this step.
+If not, connect the API plugin
 
 ```bash
 amplify add api
@@ -215,7 +201,7 @@ amplify add api
 
 ![AWSAmplify](/img/dataStore/dataStore00.png)
 
-После выбраных пунктов откроется схема GraphQL в `amplify/backend/api/<datasourcename>/schema.graphql` куда вставляем эту модель:
+After the selected items, the GraphQL schema will open in `amplify/backend/api/<datasourcename>/schema.graphql` where we insert this model:
 
 ```graphql
 type Job
@@ -232,27 +218,28 @@ type Job
   owner: String
 }
 ```
-Подробней о ней [здесь](https://react-native-village.github.io/docs/amplify-03#schemagraphql)
+
+More about [here](https://fullstackserverless.github.io/docs/amplify-03#schemagraphql)
 
 ![Step08](/img/steps/08.png)
-## Генерация моделей
+## Model generation
 
-Моделирование ваших данных и создание моделей, используемых DataStore, - это первый шаг к началу работы. GraphQL используется в качестве общего языка для JavaScript, iOS и Android для этого процесса, а также используется в качестве сетевого протокола при синхронизации с облаком. GraphQL также поддерживает некоторые функции, такие как Automerge в AppSync. Генерация модели может быть выполнена с помощью сценария NPX или из командной строки с помощью Amplify CLI.
+Modeling your data and creating the models used by the DataStore is the first step to getting started. GraphQL is used as a common language for JavaScript, iOS and Android for this process, and is also used as a network protocol when synchronizing with the cloud. GraphQL also supports some features, such as Automerge in AppSync. Model generation can be done using the NPX script or from the command line using the Amplify CLI.
 
-> Вам не нужна учетная запись AWS для ее запуска и локального использования DataStore, однако, если вы хотите синхронизироваться с облаком, рекомендуется установить и настроить Amplify CLI как в прошлом уроке
+> You do not need an AWS account to run it and use DataStore locally, however, if you want to synchronize with the cloud, it is recommended to install and configure Amplify CLI as in the last lesson
 
-Так как схему мы описали в прошлом уроке, то сейчас нам достаточно запустить команду
+Since we described the circuit in the last lesson, now it’s enough for us to run the command
 
 ```bash
 npm run amplify-modelgen
 ```
 
-и получить сгенерированую модель в папке src/models
+and get the generated model in the src/models folder
 
 ![Step09](/img/steps/09.png)
-## Обновляем API
+## Updating API
+We include DataStore for all API
 
-Включаем DataStore для всего API
 
 ```bash
 amplify update api
@@ -260,8 +247,7 @@ amplify update api
 
 ![amplify update api](/img/dataStore/dataStore03.png)
 
-
-Отправляем изменения в облако 💭
+Submitting changes to the cloud 💭
 
 ```bash
 amplify push
@@ -272,13 +258,12 @@ amplify push
 
 ![Step10](/img/steps/10.png)
 ## READ
-
-Создаем экран JobsMain src/screens/Jobs/JobsMain.js
+Create the JobsMain src/screens/Jobs/JobsMain.js screen
 
 
 ![READ](/img/dataStore/dataStore04.png)
 
-На этом экране мы сделаем запрос Query, с опцией пагинации, где число через хук useQuery и он нам вернет массив, который мы отправим в Flatlist.
+On this screen, we will make a Query query, with the pagination option, where the number is through the useQuery hook and it will return an array to us, which we will send to Flatlist.
 
 ```jsx
 import React, { useEffect, useState } from 'react'
@@ -343,7 +328,7 @@ const JobsMain = ({ navigation }) => {
 export { JobsMain }
 ```
 
-Для раскрытия подробностей вакансии создаем экран JobDetail src/screens/Jobs/JobDetail.js
+To disclose the details of the vacancy, create the screen JobDetail src/screens/Jobs/JobDetail.js
 
 ![](/img/dataStore/dataStore05.png)
 
@@ -369,11 +354,9 @@ export { JobDetail }
 ![Step11](/img/steps/11.png)
 ## CREATE UPDATE DELETE
 
-Создаем экран JobAdd src/screens/Jobs/JobAdd.js , где мы выполняем функции CREATE UPDATE DELETE
+Create the screen JobAdd src/screens/Jobs/JobAdd.js, where we perform the functions CREATE UPDATE DELETE
 
 ![](/img/dataStore/dataStore06.png)
-
-
 
 ```jsx
 import React, { useState, useEffect, useRef } from 'react'
@@ -510,7 +493,7 @@ const JobAdd = ({ route, navigation }) => {
 export { JobAdd }
 ```
 
-и в screens/Jobs/index.js экспортируем экраны
+and in screens/Jobs/index.js we export screens
 
 ```jsx
 export * from './JobsMain'
@@ -520,9 +503,8 @@ export * from './JobAdd'
 
 
 ![Step12](/img/steps/12.png)
-## Навигация
-
-Добавляем импорт экранов Jobs и подключаем их в StackNavigator
+## Navigation
+Add import of Jobs screens and connect them to StackNavigator
 
 ```jsx
 import * as React from 'react'
@@ -561,9 +543,9 @@ export default AppNavigator
 ```
 
 ![Step13](/img/steps/13.png)
-## Кнопка Jobs
+## Jobs Button
 
-Редактируем экран User в screens/Authenticator/User/index.js
+Editing the User screen in screens/Authenticator/User/index.js
 
 ```jsx
 import React, { useState, useEffect } from 'react'
@@ -607,9 +589,7 @@ const User = ({ navigation }) => {
 export { User }
 ```
 
-
-
-Собираем приложение и тестируем
+Build the application and test
 
 ## Done ✅
 

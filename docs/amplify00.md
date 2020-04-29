@@ -1,81 +1,64 @@
 ---
 id: amplify-00
 title:  AWS Amplify
-sidebar_label: Введение
+sidebar_label: Introduction 
 ---
-AWS Amplify – это платформа для разработки надежных и масштабируемых мобильных и интернет-приложений. Благодаря этой платформе значительно упрощаются такие задачи, как аутентификация пользователей, надежное хранение данных и метаданных пользователя, выборочное предоставление доступа к данным, интеграция машинного обучения, анализ метрики приложений и выполнение кода на стороне сервера. Amplify охватывает весь рабочий процесс разработки мобильного приложения от контроля версии и тестирования кода до производственного развертывания и легко масштабируется по мере развития бизнеса, позволяя увеличить количество пользователей от тысяч до десятков миллионов. Библиотеки и интерфейс командной строки Amplify с открытым исходным кодом являются частью платформы Amplify. В подключаемом интерфейсе можно настраивать и создавать собственные подключаемые модули.
+AWS Amplify is a platform for developing robust and scalable mobile and Internet applications. Thanks to this platform, tasks such as user authentication, reliable storage of user data and metadata, selective provision of data access, machine learning integration, analysis of application metrics and server-side code execution are greatly simplified. Amplify covers the entire mobile application development workflow from version control and code testing to production deployment and scales easily as the business grows, allowing you to increase the number of users from thousands to tens of millions. Amplify's open source libraries and command line interface are part of the Amplify platform. In the plug-in interface, you can configure and create your own plug-ins.
 
 ![Full Stack Serverless](/img/fullstackserverless.png)
 
+# Advantages of Amplify
 
-# Преимущества Amplify
+## Huge Latitude and Depth
+Amplify takes advantage of the AWS cloud to build applications, so you get access to significantly more services and features in many of these services than on other mobile application development platforms. When the number of users of your application increases significantly, there is no need to switch to an industrial-level platform, as Amplify scales as your business grows. With Amplify, you can create on-demand applications that can handle millions of requests per second and hundreds of terabytes of data worldwide with a delay of about one microsecond.
 
-## Огромные широта и глубина
+## Development for any platform
+Amplify is a comprehensive solution for the development and launch of mobile applications for Android and iOS systems on this platform, as well as on the Internet application development platforms React Native, React, Ionic, Angular, Javascript and Vue. This platform has everything you need for version control, automated code testing and production deployment of the application. For fast-growing Internet applications, Amplify is the only platform that combines the workflows of developing client and server parts.
 
-Amplify использует преимущества облака AWS для создания приложений, поэтому вы получаете доступ к значительно большему количеству сервисов и функций во многих из этих сервисов, чем на других платформах разработки мобильных приложений. Когда количество пользователей вашего приложения значительно возрастет, нет необходимости переходить на платформу промышленного уровня, поскольку Amplify масштабируется по мере роста вашего бизнеса. В Amplify можно создавать приложения, работающие по требованию, которые могут обрабатывать миллионы запросов в секунду и сотни терабайт данных по всему миру с задержкой около одной микросекунды.
+## Simplified data handling
+In Amplify, the process of accessing data proceeds flawlessly; there are no difficulties setting up technologies for working with multiple databases. You can easily integrate existing data sources, such as various relational and non-relational databases. Amplify allows you to use GraphQL to simplify data management, while this is not provided on other platforms. GraphQL allows you to accelerate the development of mobile applications and make them more interactive due to the ability to request and receive pieces of information from different sources in one network request. This saves the CPU and battery resources consumed by the application.
 
-## Разработка для любых платформ
+## Offline Sync
+Amplify provides data storage on a device with the function of synchronizing with data stored on the server. All other platforms provide only caching of data on the device. While the device is offline, the application can query and record data locally thanks to Amplify. As soon as the device reconnects to the network, Amplify automatically synchronizes the local data with the data stored on the server and resolves any conflicts. With Amplify, you can create robust mobile applications that can withstand network outages, as well as real-time collaboration applications on multiple devices.
 
-Amplify – это комплексное решение для разработки и запуска мобильных приложений для систем Android и iOS на этой платформе, а также на платформах разработки интернет-приложений React Native, React, Ionic, Angular, Javascript и Vue. На этой платформе есть все, что нужно для контроля версий, автоматического тестирования кода и производственного развертывания приложения. Для быстро развивающихся интернет-приложений Amplify является единственной платформой, объединяющей рабочие процессы разработки клиентской и серверной частей.
+## Without server management
+Amplify allows you to run server-side code that implements the functionality of the application, without the need to manage servers. You optimize costs because you pay only for the resources that you use, and you do not need to do server maintenance, install updates or backup, and applications gain high availability automatically.
 
-## Упрощенная работа с данными
+## Effective Security Controls
+Amplify provides much more effective security controls than other platforms. In Amplify, you can configure specific access controls for each user in the application. You can easily set up unified authentication with Amazon, Facebook and Google, as well as control access to specific data that certain users have access to.
 
-В Amplify процесс доступа к данным протекает безупречно, не возникает никаких трудностей настройки технологий для работы с несколькими базами данных. Можно с легкостью интегрировать существующие источники данных, например различные реляционные и нереляционные базы данных. Amplify позволяет использовать GraphQL, чтобы упростить управление данными, тогда как это не предусмотрено на других платформах. GraphQL позволяет ускорить разработку мобильных приложений и сделать их более интерактивными благодаря возможности запрашивать и получать фрагменты информации из разных источников в одном сетевом запросе. Это позволяет экономить ресурсы ЦП и аккумулятора, потребляемые приложением.
+# Capabilities
+Amplify provides features such as authentication, analytics, APIs (GraphQL and REST), interactions, forecasting, PubSub, data storage, Push notifications and XR, with which you can create serverless applications with advanced capabilities based on AWS services.
 
-## Автономная синхронизация
+## Data storage 🕋
+Permanent storage of data on the device with the ability to send requests and synchronize data between the application and the cloud using GraphQL.
 
-Amplify обеспечивает хранение данных на устройстве с функцией синхронизации с данными, хранящимися на сервере. Все другие платформы обеспечивают только кэширование данных на устройстве. Пока устройство не в сети, приложение может запрашивать и записывать данные локально благодаря Amplify. Как только устройство снова подключится к сети, Amplify автоматически синхронизирует локальные данные с данными, хранящимися на сервере, и разрешит любые конфликты. С помощью Amplify можно создавать надежные мобильные приложения, которые могут выдерживать сбои сети, а также приложения для совместной работы в режиме реального времени на нескольких устройствах.
+## Authentication 🛡
+Adding user registration and authorization capabilities to mobile and Internet applications, as well as full access control.
 
-## Без управления серверами
+## Analytics 📊
+Analytics support for tracking user sessions, attributes, and in-app metrics.
 
-Amplify позволяет выполнять на стороне сервера код, реализующий функциональность приложения, без необходимости управлять серверами. Вы оптимизируете затраты, поскольку платите только за те ресурсы, которые используете, и вам не нужно заниматься обслуживанием серверов, установкой обновлений или резервным копированием, а приложения обретают высокую доступность автоматически.
+## API 🛸
+Quickly and securely create HTTP requests using REST and GraphQL.
 
-## Эффективные элементы управления безопасностью
+## Augmented and virtual reality 🥽
+Easy integration of virtual reality (VR), augmented reality (AR) and three-dimensional scenes.
 
-Amplify предоставляет гораздо более эффективные элементы управления безопасностью, чем другие платформы. В Amplify можно настроить конкретные элементы управления доступом для каждого пользователя приложения. Вы можете с легкостью настроить объединенную аутентификацию с Amazon, Facebook и Google, а также контролировать доступ к конкретным данным, к которым имеют доступ определенные пользователи.
+## Interactions 🎙
+Creation of voice and text dialogue interfaces based on deep learning technologies.
 
-# Возможности
+## Notifications ⚡️ 
+Integration of personalized push notifications with built-in analytics and targeting.
 
-Amplify предоставляет такие возможности, как аутентификация, аналитика, API (GraphQL и REST), взаимодействия, прогнозирование, PubSub, хранение данных, Push-уведомления и XR, с помощью которых можно создавать бессерверные приложения с расширенными возможностями на базе сервисов AWS.
+## Prediction 🤖
+Adding AI / ML capabilities to the application through the use of cloud services.
 
-## Хранение данных
+## PubSub 🛰
+Connecting the application to middleware focused on message processing in the cloud.
 
-Постоянное хранение данных на устройстве с возможностью отправки запросов и синхронизации данных между приложением и облаком с помощью GraphQL.
+## Storage 🕋
+Securely manage user content in the cloud and on your device.
 
-## Аутентификация
-
-Добавление в мобильные и интернет‑приложения возможностей регистрации и авторизации пользователей, а также полного контроля доступа.
-
-## Аналитика
-
-Поддержка аналитики для отслеживания сеансов пользователей, атрибутов и встроенных в приложение метрик.
-
-## API
-
-Быстрое и безопасное создание запросов HTTP с использованием REST и GraphQL.
-
-## Дополненная и виртуальная реальность
-
-Простая интеграция виртуальной реальности (VR), дополненной реальности (AR) и трехмерных сцен.
-
-## Взаимодействия
-
-Создание голосовых и текстовых диалоговых интерфейсов на базе технологий глубокого обучения.
-
-## Уведомления
-
-Интеграция персонализированных push‑уведомлений со встроенной аналитикой и таргетингом.
-
-## Прогнозирование
-
-Добавление в приложение возможностей AI/ML за счет использования облачных сервисов.
-
-## PubSub
-
-Подключение приложения к ПО промежуточного слоя, ориентированному на обработку сообщений в облаке.
-
-## Хранилище
-
-Безопасное управление пользовательским контентом в облаке и на устройстве.
 
 [![Become a Patron!](/img/logo/patreon.png)](https://www.patreon.com/bePatron?u=34467235)

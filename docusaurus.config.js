@@ -8,7 +8,7 @@
  */
 
 module.exports = {
-  title: 'Full Stack Serverless',
+  title: '#fullStackServerless',
   tagline: 'Full Stack Serverless application = React Native + AWS Amplify',
   url: 'https://fullstackserverless.github.io',
   baseUrl: '/',
@@ -17,7 +17,7 @@ module.exports = {
   projectName: 'fullstackserverless.github.io',
   themeConfig: {
     navbar: {
-      title: 'Full Stack Serverless',
+      title: '#fullStackServerless',
       logo: {
         alt: 'React Native Village Logo',
         src: 'img/logo.png',

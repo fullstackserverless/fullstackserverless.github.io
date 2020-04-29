@@ -1,74 +1,72 @@
 ---
 id: auth1-00
-title: Введение
-sidebar_label: Введение
+title: Introduction 
+sidebar_label: Introduction 
 ---
-Одна из самых запрашиваемых тем, среди подписчиков моего канала [Димка Реактнативный](https://www.youtube.com/channel/UCOxewePwIQATdHTD3yZ2UZw) — это аутентификация и авторизация в приложении React Native. Поэтому я решил посветить этому вопросу отдельный пост и перед тем как мы начнем кодить, необходимо разобраться с определением Аутентификация/Авторизация.
-
-> Можете учиться по курсу с Экспо или через эмулятор Андроид или через любой другой стартер.
+One of the most requested topics among the subscribers of my channel is authentication and authorization in the React Native application. Therefore, I decided to devote a separate post to this issue, and before we start coding, it is necessary to deal with the definition of Authentication / Authorization.
 
 ![cognito](/img/auth/01.png)
 
-Чат поддержки AWS Amplify: [Telegram](https://teleg.run/awsamplify)
+AWS Amplify support chat [Discord](https://discord.gg/Ntuttww)
 
-## Аутентификация
-это проверка соответствия субъекта и того, за кого он пытается себя выдать, с помощью некой уникальной информации (отпечатки пальцев, цвет радужки, голос и т д.), в простейшем случае — с помощью почты и пароля.
+## Authentication
+it is a check of the correspondence of the subject and the one for whom he is trying to pass himself off with the help of some unique information (fingerprints, iris color, voice, etc.), in the simplest case - with the help of mail and password.
 
-## Авторизация
-это проверка и определение полномочий на выполнение некоторых действий в соответствии с ранее выполненной аутентификацией
+## Login
+this is a check and determination of the authority to perform certain actions in accordance with the previously performed authentication
 
-В конце этой статьи, мы с вами сделаем это мобильное приложение:
+At the end of this article, we will make this mobile application:
 
 ![cognito](/img/auth/00.png)
 
-Аутентификация являются неотъемлемой частью практически любого приложения. Знание того, кто пользователь, уникальный идентификатор пользователя, какие разрешения имеет пользователь, и вошли ли они в систему, позволяет вашему приложению отображать правильные представления и возвращать правильные данные для текущего вошедшего в систему пользователя.
+Authentication is an integral part of almost any application. Knowing who the user is, the unique identifier of the user, what permissions the user has, and whether they are logged in, allows your application to display the correct views and return the correct data for the current logged in user.
 
-Большинству приложений требуются механизмы для регистрации пользователей, их входа в систему, обработки шифрования и обновления паролей, а также множества других задач, связанных с управлением идентификацией. Современные приложения часто требуют таких вещей, как OAUTH (открытая аутентификация), MFA (многофакторная аутентификация) и TOTP (основанные на времени пароли времени).
+Most applications require mechanisms for registering users, logging in to the system, processing encryption and updating passwords, as well as many other tasks related to identity management. Modern applications often require things like OAUTH (open authentication), MFA (multi-factor authentication), and TOTP (time-based time passwords).
 
-В прошлом разработчикам приходилось вручную раскручивать все эти функции аутентификации с нуля. Одна только эта задача может занять у команды разработчиков недели или даже месяцы, чтобы сделать все правильно и сделать это безопасно. К счастью, сегодня есть полностью управляемые сервисы аутентификации, такие как Auth0, Okta и Amazon Cognito, которые обрабатывают все это для нас.
+In the past, developers had to manually spin all of these authentication features from scratch. This task alone can take weeks or even months from the development team to do everything right and do it safely. Fortunately, today there are fully managed authentication services like Auth0, Okta and Amazon Cognito that handle all this for us.
 
-В этой статье вы узнаете, как правильно и безопасно внедрить аутентификацию в приложении React Native с использованием Amazon Cognito с AWS Amplify.
+In this article, you'll learn how to correctly and securely implement authentication in a React Native application using Amazon Cognito with AWS Amplify.
 
 ## Amazon Cognito
-это полностью управляемый сервис идентификации от AWS. Cognito обеспечивает простую и безопасную регистрацию пользователей, вход в систему, контроль доступа, обновление токенов и управление идентификацией пользователей. Cognito масштабируется до миллионов пользователей, а также поддерживает вход в систему с поставщиками социальных сетей, такими как Facebook, Google и Amazon.
+It is a fully managed authentication service from AWS. Cognito provides easy and secure user registration, logon, access control, token updates, and user identity management. Cognito scales to millions of users and also supports logging in with social network providers such as Facebook, Google and Amazon.
 
-Cognito состоит из двух основных частей: пулов пользователей и пулов идентификации.
+Cognito consists of two main parts: user pools and identity pools.
 
 ## User Pools
-пулы пользователей предоставляют защищенный каталог пользователей, который хранит всех ваших пользователей и масштабируется до сотен миллионов пользователей. Это полностью управляемый сервис. Как бессерверная технология, пользовательские пулы легко настраиваются, не беспокоясь о том, чтобы поддерживать любую инфраструктуру. Пулы пользователей — это то, что управляет всеми пользователями, которые регистрируются и входят в учетную запись, и является основной частью, на которой мы сосредоточимся в этой статье.
+user pools provide a secure user directory that stores all of your users and scales to hundreds of millions of users. This is a fully managed service. Like serverless technology, user pools are easy to configure, without having to worry about supporting any infrastructure. User pools are what manage all the users who register and log in to the account, and is the main part that we will focus on in this article.
 
 ## Identity pools
-пулы удостоверений позволяют вам авторизовать пользователей, вошедших в ваше приложение, для доступа к различным другим сервисам AWS. Допустим, вы хотите предоставить пользователю доступ к лямбда-функции, чтобы он мог получать данные из другого API. Вы можете указать это при создании пула удостоверений. В пулы пользователей входит то, что источником этих идентификаторов может быть пул пользователей Cognito или даже Facebook или Google.
+identity pools allow you to authorize users who are logged into your application to access various other AWS services. Suppose you want to give a user access to a lambda function so that it can receive data from another API. You can specify this when creating the identity pool. User pools include the fact that the source of these identifiers may be the Cognito user pool, or even Facebook or Google.
 
-Сценарий, когда пул пользователей Amazon Cognito и пул удостоверений используются вместе.
+A scenario where an Amazon Cognito user pool and an identity pool are used together.
 
-Смотрите схему для общего сценария Amazon Cognito. Здесь цель состоит в том, чтобы аутентифицировать вашего пользователя, а затем предоставить ему доступ к другому сервису AWS.
+See the diagram for a common Amazon Cognito script. The goal here is to authenticate your user and then give him access to another AWS service.
 
 ![cognito](/img/auth/auth00.png)
 
-1. На первом этапе пользователь вашего приложения входит в систему через пул пользователей и получает токены пула пользователей после успешной аутентификации.
+1. At the first stage, the user of your application enters the system through the user pool and receives tokens of the user pool after successful authentication.
 
-2. Затем ваше приложение обменивает токены пула пользователей на учетные данные AWS через пул удостоверений.
+2. Then your application exchanges user pool tokens for AWS credentials through the identity pool.
 
-3. Наконец, пользователь вашего приложения может затем использовать эти учетные данные AWS для доступа к другим сервисам AWS, таким как Amazon S3 или DynamoDB.
+3. Finally, your application user can then use these AWS credentials to access other AWS services, such as Amazon S3 or DynamoDB.
 
-Cognito User Pools позволяет вашему приложению вызывать различные методы для службы для управления всеми аспектами идентификации пользователя, включая такие вещи, как:
+Cognito User Pools allows your application to call various methods for a service to manage all aspects of user authentication, including things like:
 
-+ Регистрация пользователя
-+ Вход в систему пользователя
-+ Выход пользователя
-+ Смена пароля пользователя
-+ Сброс пароля пользователя
-+ Подтверждение кода MFA
-+ Интеграция Amazon Cognito с AWS Amplify
++ User registration
++ User login
++ User Logout
++ Change user password
++ Reset user password
++ MFA Code Verification
++ Amazon Cognito Integration with AWS Amplify
 
-AWS Amplify поддерживает Amazon Cognito различными способами. Прежде всего вы можете создавать и настраивать сервисы Amazon Cognito непосредственно из интерфейса командной строки AWS Amplify. Создав службу аутентификации через CLI, вы можете вызывать различные методы (например, signUp, signIn и signOut) из приложения JavaScript с помощью клиентской библиотеки Amplify JavaScript.
-Amplify также имеет предварительно настроенные компоненты пользовательского интерфейса, которые позволяют выстраивать целые потоки аутентификации всего за пару строк кода для таких сред, как React, React Native, Vue и Angular.
+AWS Amplify supports Amazon Cognito in a variety of ways. First of all, you can create and configure Amazon Cognito services directly from the AWS Amplify command-line interface. By creating an authentication service through the CLI, you can call various methods (for example, signUp, signIn and signOut) from a JavaScript application using the Amplify JavaScript client library.
+Amplify also has pre-configured user interface components that allow you to build entire authentication flows in just a couple of lines of code for environments such as React, React Native, Vue, and Angular.
 
-## Вы спросите и сколько же это все стоит?
-#### Платите только за то, чем пользуетесь. Никаких минимальных платежей.
+## How much does it all cost?
+#### Pay only for what you use. No minimum fees.
 
-Используя Amazon Cognito Identity для создания пула пользователей, вы платите только за количество активных пользователей в месяц (MAU). MAU — это пользователи, которые в течение календарного месяца выполнили хотя бы одну операцию идентификации: регистрацию, авторизацию, обновление токена или изменение пароля. Последующие сессии активных пользователей и неактивные пользователи в этом календарном месяце не оплачиваются.
+Using Amazon Cognito Identity to create a user pool, you pay only for the number of active users per month (MAU). MAUs are users who have performed at least one identification operation during a calendar month: registration, authorization, token renewal, or password change. Subsequent sessions of active users and inactive users in this calendar month are not paid.
 
 ![cognito](/img/auth/auth01.png)
 
