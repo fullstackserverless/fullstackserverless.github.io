@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{139:function(a){a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"aws-amplify","name":"awsamplify","count":1,"permalink":"/blog/tags/aws-amplify"}')}}]);
