@@ -21,7 +21,7 @@ function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Уроки React Native, AWS Amplify">
+      description="React Native + AWS Amplify = Fullstackserverless">
       <img
         alt="Fullstackserverless"
         src={useBaseUrl('img/fullstackserverless.png')}
