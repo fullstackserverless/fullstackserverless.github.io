@@ -37,7 +37,7 @@ function Home() {
                 styles.getStarted,
               )}
               to={useBaseUrl('docs/startup00')}>
-              Начать
+              Start
             </Link>
           </div>
         </div>
