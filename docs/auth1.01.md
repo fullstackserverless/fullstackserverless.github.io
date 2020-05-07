@@ -3,7 +3,9 @@ id: auth1-01
 title: Authentication
 sidebar_label: Part I
 ---
-In this part, we will configure the authentication UI component from AWS Amplify, and in the next we will create it from scratch.
+I decided to make  two-part authentication series. In this first part, we will make default authentication 
+UI component from AWS Amplify, and in the next part we will look through how to create it  from scratch
+with custom design.
 
 All code for this part can be found on [GitHub](https://github.com/react-native-village/messaga/tree/Part1).
 
