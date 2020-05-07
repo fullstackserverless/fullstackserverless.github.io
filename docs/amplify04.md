@@ -181,7 +181,7 @@ If you have a React Native Cli, then
 
 
 ```bash
-yarn add @aws-amplify/datastore @aws-amplify/core @react-native-community/netinfo @react-native-community/async-storage
+yarn add @aws-amplify/datastore @react-native-community/netinfo @react-native-community/async-storage
 ```
 
 And if you use React Native> 0.60, then run the following command for iOS:
