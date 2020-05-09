@@ -40,6 +40,12 @@ module.exports = {
           position: 'left',
         },
         {
+          to: 'blog',
+          activeBasePath: 'docs',
+          label: 'Vacancies',
+          position: 'left',
+        },
+        {
           href: 'https://github.com/fullstackserverless',
           label: 'GitHub',
           position: 'right',
