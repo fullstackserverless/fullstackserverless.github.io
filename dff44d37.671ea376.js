@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[34],{132:function(o){o.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"mob-x","name":"mobx","count":1,"permalink":"/blog/tags/mob-x"}')}}]);
