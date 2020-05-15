@@ -52,19 +52,20 @@ module.exports = {
   assets: ['./assets/fonts/']
 }
 ```
-Download the fonts [here](https://github.com/react-native-village/react-native-unicorn/tree/master/assets/fonts) and then in the created directory ./assets/fonts/ put them, and after linking.
+Download fonts [here](https://github.com/react-native-village/react-native-unicorn/tree/master/assets/fonts) and then in the created directory ./assets/fonts/ put them, and after do not forget to link them.
 
 ```jsx
 react-native link
 ```
-We collect and if, like me, you receive these warnings: warning: duplicate output file errors, then go to Xcode and delete duplicate fonts, except for connected ones.
+Put together all changes and if you, like me, will receive these warnings: 
+duplicate output file errors, then go to Xcode and delete duplicate fonts, except for connected ones.  
 
 ![warning: duplicate output file errors](https://miro.medium.com/max/2000/1*SwWN88tSmK2cj9qRDyTWGA.png)
 
 ![Step06](/img/steps/06.png)
 ## ThemeProvider
-
-In App.js we connect the default themes and ThemeProvider or on the bottom of [this](https://github.com/react-native-village/react-native-unicorn/blob/master/src/APIComponents.js) file add your themes .
+In App.js we connect default themes and ThemeProvider. Alternatively, you can add your own 
+themes based on this [this](https://github.com/react-native-village/react-native-unicorn/blob/master/src/APIComponents.js) file.
 
 ```jsx
 import React, { useState } from 'react'

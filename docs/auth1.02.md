@@ -3,31 +3,33 @@ id: auth1-02
 title: Authentication
 sidebar_label: Part II
 ---
-Firstly, the standard UI from Amplify does not always satisfy the UX coming from the customer
+Firstly, the standard UI from Amplify does not always meet customer UX requirements
 
-Secondly, in the [official documentation] (https://aws-amplify.github.io/docs/js/react#note-on-jwt-storage) Amplify says:
+Secondly, in the  [official documentation] of Amplify (https://aws-amplify.github.io/docs/js/react#note-on-jwt-storage) it is stated that:
 
 > Data is stored unencrypted when using standard storage adapters (localStorage in the browser and AsyncStorage on React Native). Amplify gives you the option to use your own storage object to persist data. With this, you could write a thin wrapper around libraries like:
 react-native-keychain
 react-native-secure-storage
 Expo’s secure store
 
-This means that the authentication data is stored in an unencrypted form, and this is a risk 🕷 of information security with possible negative consequences 🕸, so we will solve these two problems in this part.
+This means that the authentication data is stored in an unencrypted form, and this is a risk 
+🕷 of information security with possible negative consequences 🕸. 
 
-All code for this part can be found on [GitHub](https://github.com/react-native-village/aws-amplify-react-hooks/tree/master/examples/reactNativeCRUDv2).
+Source code for this part is available on [GitHub](https://github.com/react-native-village/aws-amplify-react-hooks/tree/master/examples/reactNativeCRUDv2).
 
 ![cognito](/img/auth/01.png)
 
 ![Step01](/img/steps/01.png)
 ## UI Kit
-We will use our UI Kit, but you can easily replace it with yours or any other.
+We will use our UI Kit, but you're free to use your own or others.
 
 We connect the component library according to [this](https://react-native-village.github.io/docs/unicorn00) article.
 
 
 ![Step02](/img/steps/02.png)
-## Navigation react-navigation
-We set the react-navigation 5 navigation, as it is written [here](https://reactnavigation.org/docs/getting-started/) (at the time of this writing):
+## Add navigation
+install react-navigation v5, based on this instruction [here](https://reactnavigation.org/docs/getting-started/) 
+(at the time of  writing this article this is latest version of navigation) 
 
 
 ```bash
@@ -42,14 +44,15 @@ cd ios && pod install && cd ..
 
 
 <div class="alert alert--info" role="alert">
-📌 I recommend that after each installation, launch the application for iOS and Android, so as not to search for the library because of which the application crashes.
+📌 I recommend to launch the application for iOS and Android, after each installation, 
+  in order to avoid searching for the library because of which the application crashes.
 </div>
 
 
 ![Step03](/img/steps/03.png)
 ## react-native-keychain
 
-We put the react-native-keychain library - this is the safe react-native-keychain key store for React Native.
+Add react-native-keychain - this is a secure keystore library for React Native.
 
 ```bash
 yarn add react-native-keychain
@@ -60,7 +63,7 @@ Add pods for iOS
 ```bash
 cd ios && pod install && cd ..
 ```
-According to what [official documentation](https://aws-amplify.github.io/docs/js/authentication#managing-security-tokens) tells us:
+According to [official documentation:](https://aws-amplify.github.io/docs/js/authentication#managing-security-tokens)
 > When using authentication with AWS Amplify, you don’t have to update Amazon Cognito tokens manually. Tokens are automatically updated by the library when necessary. Security tokens, such as IdToken or AccessToken, are stored in localStorage for the browser and in AsyncStorage for React Native. If you want to store these tokens in a more secure place or use Amplify on the server side, you can provide your own storage object for storing these tokens.
 
 configure src / index.js
@@ -126,7 +129,8 @@ export default App
 ![Step04](/img/steps/04.png)
 ## Constants
 
-In order not to copy the same values, we create a file with constants for general use in src / constants.js components
+Create a file with constants for general use in 
+src / constants.js components. This is helps us to avoid copy pasting the same values multiple times
 
 ```jsx
 import { Dimensions } from 'react-native'
@@ -202,11 +206,11 @@ export default AppNavigator
 
 ![Step06](/img/steps/06.png)
 ## Hello screen
-Create an entry point for our src/screens/Authenticator/index.js authentication screens
+Create an entry point for our authentication screens src/screens/Authenticator/index.js 
 
 ![Hello screen](/img/auth/auth1-04.png)
 
-Where to start we connect the welcome screen
+To begin with, let's connect welcome screen
 
 
 ```jsx
@@ -261,7 +265,7 @@ const Hello = ({ navigation }) => {
 export { Hello }
 ```
 
-We collect the application and meet the welcome screen.
+Put together all changes and meet the welcome screen.
 
 
 ![Step07](/img/steps/07.png)
@@ -463,7 +467,8 @@ const ConfirmSignUp = ({ route, navigation }) => {
 export { ConfirmSignUp }
 ```
 ## ResendSignUp
-If the code has not arrived, then we must provide the user with the opportunity to resend the code. To do this, on the button Resend code? we hang up the Auth.resendSignUp method (userInfo.email)
+If the code has not arrived, then we must provide the user with the opportunity to resend the code. 
+To do this, we put Auth.resendSignUp(userInfo.email)  on button  Resend code. 
 In case of a successful method call
 
 ```jsx
@@ -478,7 +483,7 @@ Auth.signIn(email, password)
 
 ![Step09](/img/steps/09.png)
 ## User screen
-If successful, go to the USER screen, which we create with the exit button for the application and clearing the src/screens/Authenticator/User/index.js tokens
+Once it successfully done, go to the USER screen, which we create with the exit button for the application and clearing the src/screens/Authenticator/User/index.js tokens
 
 ![User screen](/img/auth/auth1-07.png)
 
