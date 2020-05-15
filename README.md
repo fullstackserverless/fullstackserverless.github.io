@@ -47,4 +47,7 @@ $ yarn ci
 
 ### OG Image
 Afler deploy
+
+```javascript
 <meta property="og:image" content="https://fullstackserverless.github.io/img/fullstackserverless.png">
+```
