@@ -12,6 +12,15 @@
  * and scoped locally.
  */
 
+.player {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100vh;
+  width: 100vw;
+}
+
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
