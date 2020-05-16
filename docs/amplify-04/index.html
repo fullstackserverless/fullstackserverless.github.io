@@ -13,12 +13,12 @@
 <link data-react-helmet="true" rel="shortcut icon" href="/img/favicon.ico">
 
 
-<link rel="stylesheet" href="/styles.3f926cc4.css">
+<link rel="stylesheet" href="/styles.b7c8f5f1.css">
 
 
-<link rel="preload" href="/styles.7bad10b6.js" as="script">
+<link rel="preload" href="/styles.50d8271a.js" as="script">
 
-<link rel="preload" href="/runtime~main.5cbb5ec5.js" as="script">
+<link rel="preload" href="/runtime~main.707be3e6.js" as="script">
 
 <link rel="preload" href="/main.7122c68d.js" as="script">
 
@@ -34,7 +34,7 @@
 
 <link rel="preload" href="/17896441.743b02bc.js" as="script">
 
-<link rel="preload" href="/d2e01fa0.1cc6ce88.js" as="script">
+<link rel="preload" href="/d2e01fa0.303fc672.js" as="script">
 
 </head>
 <body>
@@ -86,9 +86,9 @@ If not, connect the API plugin</p><div class="mdxCodeBlock_iHAB"><div class="cod
 </span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token keyword" style="font-style:italic">export</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"> User </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span></div></div></div></div></div><p>Build the application and test</p><h2><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_ZqCz" id="done-"></a><a aria-hidden="true" tabindex="-1" class="hash-link" href="#done-" title="Direct link to heading">#</a>Done ✅</h2><h2><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_ZqCz" id="references"></a><a aria-hidden="true" tabindex="-1" class="hash-link" href="#references" title="Direct link to heading">#</a>References:</h2><p><a href="https://aws-amplify.github.io">https://aws-amplify.github.io</a></p><p><a href="https://learning.oreilly.com/library/view/full-stack-serverless/9781492059882/">https://learning.oreilly.com/library/view/full-stack-serverless/9781492059882/</a></p><p><a href="https://www.altexsoft.com/blog/engineering/graphql-core-features-architecture-pros-and-cons/">https://www.altexsoft.com/blog/engineering/graphql-core-features-architecture-pros-and-cons/</a></p><p><a href="https://engineering.fb.com/core-data/graphql-a-data-query-language/">https://engineering.fb.com/core-data/graphql-a-data-query-language/</a></p><p><a href="https://graphql.org/learn">https://graphql.org/learn</a></p><p><a href="https://www.patreon.com/bePatron?u=34467235"><img src="/img/logo/patreon.png" alt="Become a Patron!"></a></p></div></article><div class="margin-vert--xl"><div class="row"><div class="col"><a href="https://github.com/facebook/docusaurus/edit/master/website/docs/amplify04.md" target="_blank" rel="noreferrer noopener"><svg fill="currentColor" height="1.2em" width="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40" style="margin-right:0.3em;vertical-align:sub"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div></div></div><div class="margin-vert--lg"><nav class="pagination-nav"><div class="pagination-nav__item"><a class="pagination-nav__link" href="/docs/amplify-03"><div class="pagination-nav__link--sublabel">Previous</div><div class="pagination-nav__link--label">« Amplify API - AppSync - CRUD (Create Read Update Delete)</div></a></div><div class="pagination-nav__item pagination-nav__item--next"></div></nav></div></div></div><div class="col col--3"><div class="tableOfContents_TbNY"><ul class="contents contents__left-border"><li><a href="#advantages-of-aws-amplify-datastore-over-redux-mobx-apollo-relay-selectors" class="contents__link">Advantages of AWS Amplify DataStore over Redux, MobX, Apollo, Relay, selectors:</a></li><li><a href="#1-real-time-out-of-the-box" class="contents__link">1. Real time out of the box.</a></li><li><a href="#2-code-generation" class="contents__link">2. Code generation.</a></li><li><a href="#3-offline-data--cloud-sync" class="contents__link">3. Offline data &amp; cloud sync</a></li><li><a href="#clone-the-repository" class="contents__link">Clone the repository</a></li><li><a href="#register-your-aws-account" class="contents__link">Register your AWS account</a></li><li><a href="#initializing-aws-amplify-in-a-react-native-project" class="contents__link">Initializing AWS Amplify in a React Native Project</a></li><li><a href="#connect-the-authentication-plugin" class="contents__link">Connect the authentication plugin</a></li><li><a href="#ampify-app" class="contents__link">ampify-app</a></li><li><a href="#installing-dependencies" class="contents__link">Installing dependencies</a></li><li><a href="#connecting-the-api-plugin-app-sync" class="contents__link">Connecting the API plugin (App Sync)</a></li><li><a href="#model-generation" class="contents__link">Model generation</a></li><li><a href="#updating-api" class="contents__link">Updating API</a></li><li><a href="#read" class="contents__link">READ</a></li><li><a href="#create-update-delete" class="contents__link">CREATE UPDATE DELETE</a></li><li><a href="#navigation" class="contents__link">Navigation</a></li><li><a href="#jobs-button" class="contents__link">Jobs Button</a></li><li><a href="#done-" class="contents__link">Done ✅</a></li><li><a href="#references" class="contents__link">References:</a></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container"><div class="row footer__links"><div class="col footer__col"><h4 class="footer__title">Tutorials</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" href="/docs/startup00">Startup</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/unicorn00">UI Kit</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/auth1-00">Authentication</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/amplify-00">AWS Amplify</a></li></ul></div><div class="col footer__col"><h4 class="footer__title">Community</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" target="_blank" rel="noopener noreferrer" href="https://discord.gg/Ntuttww">Discord</a></li></ul></div><div class="col footer__col"><h4 class="footer__title">Social</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" target="_blank" rel="noopener noreferrer" href="https://dev.to/playra">Dev.to</a></li><li class="footer__item"><a class="footer__link-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/koshasuperstar">Twitter</a></li><li class="footer__item"><a class="footer__link-item" target="_blank" rel="noopener noreferrer" href="https://www.patreon.com/fullstackserverless">Patreon</a></li><li class="footer__item"><a class="footer__link-item" target="_blank" rel="noopener noreferrer" href="https://github.com/fullstackserverless">GitHub</a></li></ul></div></div><div class="text--center"><div class="margin-bottom--sm"><a href="https://opensource.facebook.com/" target="_blank" rel="noopener noreferrer" class="footerLogoLink_1Wg7"><img class="footer__logo" alt="Facebook Open Source Logo" src="/img/oss_logo.png"></a></div><div>Copyright © 2020 @playra. Built with Docusaurus.</div></div></div></footer>
 </div>
 
-<script src="/styles.7bad10b6.js"></script>
+<script src="/styles.50d8271a.js"></script>
 
-<script src="/runtime~main.5cbb5ec5.js"></script>
+<script src="/runtime~main.707be3e6.js"></script>
 
 <script src="/main.7122c68d.js"></script>
 
@@ -104,7 +104,7 @@ If not, connect the API plugin</p><div class="mdxCodeBlock_iHAB"><div class="cod
 
 <script src="/17896441.743b02bc.js"></script>
 
-<script src="/d2e01fa0.1cc6ce88.js"></script>
+<script src="/d2e01fa0.303fc672.js"></script>
 
 
 </body>
