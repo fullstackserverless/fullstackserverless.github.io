@@ -7,18 +7,18 @@
  * @format
  */
 
-import React from 'react';
-import classnames from 'classnames';
-import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import YouTube from 'react-youtube';
-import styles from './styles.module.css';
+import React from 'react'
+import classnames from 'classnames'
+import Layout from '@theme/Layout'
+import Link from '@docusaurus/Link'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import useBaseUrl from '@docusaurus/useBaseUrl'
+import YouTube from 'react-youtube'
+import styles from './styles.module.css'
 
 function Home() {
-  const context = useDocusaurusContext();
-  const {siteConfig = {}} = context;
+  const context = useDocusaurusContext()
+  const { siteConfig = {} } = context
   const opts = {
     height: '100%',
     width: '100%',
@@ -30,37 +30,32 @@ function Home() {
       iv_load_policy: 3,
       modestbranding: 1,
       rel: 0,
-      showinfo: 0,
-    },
-  };
-
+      showinfo: 0
+    }
+  }
+  const { videoContainer, player, heroBanner, buttons, getStarted } = styles
   return (
-    <Layout
-      title={`${siteConfig.title}`}
-      description="React Native + AWS Amplify = Fullstackserverless">
-      <YouTube videoId="9CNmJda6gAk" opts={opts} className={styles.player} />
-      <img
-        alt="Fullstackserverless"
-        src={useBaseUrl('img/fullstackserverless.png')}
-      />
-      <header className={classnames('hero hero--primary', styles.heroBanner)}>
+    <Layout title={`${siteConfig.title}`} description="React Native + AWS Amplify = Fullstackserverless">
+      <div className={videoContainer}>
+        <YouTube videoId="9CNmJda6gAk" opts={opts} className={player} />
+      </div>
+      <img alt="Fullstackserverless" src={useBaseUrl('img/fullstackserverless.png')} />
+      <header className={classnames('hero hero--primary', heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
-          <div className={styles.buttons}>
+          <div className={buttons}>
             <Link
-              className={classnames(
-                'button button--outline button--secondary button--lg',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('docs/startup00')}>
+              className={classnames('button button--outline button--secondary button--lg', getStarted)}
+              to={useBaseUrl('docs/startup00')}
+            >
               Start
             </Link>
           </div>
         </div>
       </header>
     </Layout>
-  );
+  )
 }
 
-export default Home;
+export default Home
