@@ -19,7 +19,7 @@ Here is how the answers can be:
 - you need to link the push notification dependency with:
 `react-native link @aws-amplify/pushnotification`
 
-To prevent an [error](https://github.com/aws-amplify/amplify-js/issues/5010) in the future add the `netinfo` if you already don't have it in your project by the following command:
+To prevent an [error](https://github.com/aws-amplify/amplify-js/issues/5010) in the future add the `netinfo` library. You can add it to your  project by the following command (in case your don't have it):
 ```bash
  yarn add @react-native-community/netinfo
 ```
@@ -84,7 +84,6 @@ To prevent an [error](https://github.com/aws-amplify/amplify-js/issues/5010) in 
 4. You will be asked for `ApiKey`. For getting that, you should do the following steps:
 - Open the [Firebase console](https://console.firebase.google.com/) and open the app you created in previous steps.
 - Click on the gear icon in the `Project Overview` section of the dashboard and select the `Project settings`.
-
 ![Project settings](/img/notification/notif_project_settings.png)
 - Select the `Cloud Messaging` tab and copy the value of the `Server key`.
 ![Project settings](/img/notification/notif_api_key.png)
