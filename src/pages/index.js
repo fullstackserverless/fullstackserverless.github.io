@@ -16,6 +16,55 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 import YouTube from 'react-youtube'
 import styles from './styles.module.css'
 
+const features = [
+  {
+    title: <>We teach and solve problems of developers</>,
+    imageUrl: 'img/undraw_docusaurus_mountain.svg',
+    description: (
+      <>
+        Developers can describe their challenges in developing mobile applications on react-native and get qualified
+        help from mentors.
+      </>
+    )
+  },
+  {
+    title: <>We motivate developers to solve problems</>,
+    imageUrl: 'img/undraw_docusaurus_tree.svg',
+    description: (
+      <>
+        For successful technical support, the developer is given a unicorn, from the number of which the rating of
+        programmers is formed, which in turn increases their chance to get more attractive offer from employers, as well
+        as pay for each task solved.
+      </>
+    )
+  },
+  {
+    title: <>We give practice and employ the best</>,
+    imageUrl: 'img/undraw_docusaurus_react.svg',
+    description: (
+      <>
+        In the application, you can create a resume, respond to a vacancy and receive an offer from your employer, and
+        participate in the creation of a mobile application.
+      </>
+    )
+  }
+]
+
+function Feature({ imageUrl, title, description }) {
+  const imgUrl = useBaseUrl(imageUrl)
+  return (
+    <div className={classnames('col col--4', styles.feature)}>
+      {imgUrl && (
+        <div className="text--center">
+          <img className={styles.featureImage} src={imgUrl} alt={title} />
+        </div>
+      )}
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </div>
+  )
+}
+
 function Home() {
   const context = useDocusaurusContext()
   const { siteConfig = {} } = context
@@ -39,7 +88,19 @@ function Home() {
       <div className={videoContainer}>
         <YouTube videoId="9CNmJda6gAk" opts={opts} className={player} />
       </div>
-      <img alt="Fullstackserverless" src={useBaseUrl('img/fullstackserverless.png')} />
+      <main>
+        {features && features.length && (
+          <section className={styles.features}>
+            <div className="container">
+              <div className="row">
+                {features.map(({ title, imageUrl, description }) => (
+                  <Feature key={title} title={title} imageUrl={imageUrl} description={description} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+      </main>
       <header className={classnames('hero hero--primary', heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>

@@ -1,7 +1,13 @@
-# Push Notification with Amplify
+---
+id: notif-00 
+title: Push Notification with Amplify   
+sidebar_label: Push Notification 
+---
 Push notifications play an essential role in any Application. It can considerably increase the user engagement, and it might be an asked feature from the end-user.
 
 ![Push Notifications](/img/notification/00.png)
+
+
 
 Setting up a push notification from scratch can be a bit challenging. Fortunately, the Amplify provides the push notification services and SDK for our apps. In this tutorial, we learn how to integrate our app with this service.
 
