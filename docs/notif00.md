@@ -221,8 +221,106 @@ PushNotification.requestIOSPermissions({
 });
 ```
 
+![Step05](/img/steps/05.png)
+
+## Testing
+First of all, we want to take a look at the `App.js` file. Though you can work with the API anywhere in your code, It can be something like this:
+```js
+import React from 'react';
+import {SafeAreaView, Platform, Text, NativeModules} from 'react-native';
+
+import PushNotificationIOS from '@react-native-community/push-notification-ios';
+import Analytics from '@aws-amplify/analytics';
+import Amplify from 'aws-amplify';
+import PushNotification from '@aws-amplify/pushnotification';
+import awsconfig from './aws-exports';
+
+Amplify.configure(awsconfig);
+PushNotification.configure(awsconfig);
+
+PushNotification.onRegister(async (token) => {
+  console.log('in app registration', token);
+  PushNotification.updateEndpoint(token);
+});
+
+// In case PushNotification.onRegister didn't work
+NativeModules.RNPushNotification.getToken((token) => {
+  console.log(`PushToken: ${token}`);
+});
+
+PushNotification.onNotification((notification) => {
+  console.log('in app notification', notification);
+  if (Platform.OS === 'ios') {
+    notification.finish(PushNotificationIOS.FetchResult.NoData);
+  }
+});
+
+PushNotification.onNotificationOpened((notification) => {
+  console.log('the notification is opened', notification);
+});
+
+const endpointId = Analytics.getPluggable('AWSPinpoint')._config.endpointId;
+console.log(`endpoint ID: ${endpointId}`);
+
+if (Platform.OS === 'ios') {
+  PushNotification.requestIOSPermissions();
+}
+
+const App: () => React$Node = () => {
+  return (
+    <SafeAreaView>
+      <Text>Push Notification</Text>
+    </SafeAreaView>
+  );
+};
+
+export default App;
+
+```
+Now we run our program:
+```bash
+react-native run-android
+```
+To go further, we need one of the `endpoint ID` or `Push Token`.
+[Here]() is an explanation of `endpoint` in `aws` services:
+> An endpoint represents a destination that you can send messages to, such as a mobile device, email address, or phone number.
+
+`Push Token` is a unique id, Which is generated and assigned by `GCM`(Android) or `APNS`(IOS) to your application in a specific device.
+
+The most apparent difference between these two is that the `endpoint` is generated from `aws`, and defines the app in a device regardless of the platform(IOS/Android). But the push token is generated either by the `Apple` or `Google`, depending on the platform. 
+
+We use `console.log` to copy and keep these keys for the next steps. Go into the dev mode and copy the following values in your console:
+
+![Tokens](/img/notification/notif_console_tokens.png)
+
+Although there are multiple ways to send a test push notification to a specific device, We're going to learn the easiest way possible.
+
+1. run the following command in the root of the project:
+ ```bash
+amplify notification console
+ ```
+2. The console of the app will be opened in the browser automatically.
+3. Select the `Test messaging` in the left sidebar:
+
+ ![Test messaging](/img/notification/notif_aws_notif_console.png)
+
+4. In the `Channel` section, select the `Push notifications`.
+5. The `Destinations` section is as follow:
+  ![Destinations](/img/notification/notif_testing_message_dest.png)
+    1. `Destination type` defines whether you want to use `Endpoint IDs` or `Device Tokens`(or `Push token` in previous steps) in the next text input.
+    2. Paste the token you want to use, Based on the selected `Destination type`.
+    3. If you have chosen the `Endpoint IDs` and used endpoint, then the `Push notifications service` can automatically detect your device. Otherwise, if you have used `Device token`, for IOS, choose the `APNS` and for Android choose the `FCM`.
+6. You can fill the `Message` section like below and press the `Send message` button.
+![Destinations](/img/notification/notif_testing_message_message.png)
+7. You will get a success message like below if everything is ok.
+![Success](/img/notification/notif_testing_message_success.png)
+After a couple of seconds, You will see the push notification in your device:
+![Push notification result](/img/notification/notif_android_push_result.png)
+
 #### Refrences:
 
 [Amplify Docs](https://docs.amplify.aws/lib/push-notifications/getting-started/q/platform/js)
 
 [Setting up Android Push Notifications with AWS Amplify](https://medium.com/@dantasfiles/setting-up-android-push-notifications-with-aws-amplify-e6334c6356d8)
+
+[Testing Push Notifications with AWS Amplify & CLI](https://medium.com/@dantasfiles/testing-push-notifications-with-aws-amplify-9126bd621d3a)
