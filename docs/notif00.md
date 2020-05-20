@@ -1,5 +1,8 @@
 # Push Notification with Amplify
 Push notifications play an essential role in any Application. It can considerably increase the user engagement, and it might be an asked feature from the end-user.
+
+![Push Notifications](/img/notification/00.png)
+
 Setting up a push notification from scratch can be a bit challenging. Fortunately, the Amplify provides the push notification services and SDK for our apps. In this tutorial, we learn how to integrate our app with this service.
 
 ![Step01](/img/steps/01.png)
@@ -7,17 +10,29 @@ Setting up a push notification from scratch can be a bit challenging. Fortunatel
 ## Setup
 
 Whether you are going to implement only for IOS or Android, the following steps are required. If you are not working on a project, then the first step is creating one by the following command:
-- `npx react-native init amplifyPush`
-- `cd amplifyPush`
+ ```bash
+npx react-native init amplifyPush
+```
+```bash
+cd amplifyPush
+```
 
 Initialize our AWS Amplify project in the root directory.
 `amplify init`
 Here is how the answers can be:
 ![Initialize Amplify](/img/notification/notif_amplify_init.png)
 - Add the required dependencies with:
-`npm install aws-amplify && npm install @aws-amplify/pushnotification` or ` yarn add aws-amplify @aws-amplify/pushnotification`
+```bash
+npm install aws-amplify && npm install @aws-amplify/pushnotification
+``` 
+or 
+```bash
+ yarn add aws-amplify @aws-amplify/pushnotification
+ ```
 - you need to link the push notification dependency with:
-`react-native link @aws-amplify/pushnotification`
+```bash
+react-native link @aws-amplify/pushnotification
+```
 
 To prevent an [error](https://github.com/aws-amplify/amplify-js/issues/5010) in the future add the `netinfo` library. You can add it to your  project by the following command (in case your don't have it):
 ```bash
@@ -44,7 +59,7 @@ To prevent an [error](https://github.com/aws-amplify/amplify-js/issues/5010) in 
     3. Add the Firebase SDK as the instructions. Consider the `<project>` the `android` and `<app-module>` the `app` directory in the react native project. Don't forget to add the latest version of `firebase-messaging` from [here](https://firebase.google.com/docs/android/setup#available-libraries) as well ad the `firebase-analytics` in `dependencies`.
     4. run the project in Android and you will see that the verification of Firebase. (you can skip this step)
 5. Open the `android/app/src/main/AndroidManifest.xml` and add the following code in the `application` element:
-```xml
+ ```xml
  <!--[START Push notification config -->
          <!-- [START firebase_service] -->
          <service
@@ -69,17 +84,20 @@ To prevent an [error](https://github.com/aws-amplify/amplify-js/issues/5010) in 
              </intent-filter>
          </receiver>
      <!-- [END Push notification config -->
-```
+ ```
 #### Setting up the Amplify for FCM
-1. Add the push notification service by `amplify add notifications` in the terminal in the project directory.
+1. Add the push notification service to amplify by the following command in the project directory:
+ ```bash 
+  amplify add notifications
+ ```
 2. Choose `FCM` when promoted:
-```
- ? Choose the push notification channel to enable.
- APNS
- ❯ FCM
- Email
- SMS
-```
+ ```
+  ? Choose the push notification channel to enable.
+  APNS
+  ❯ FCM
+  Email
+  SMS
+ ```
 3. Fill the pinpoint resource name (or just press enter without filling anything).
 4. You will be asked for `ApiKey`. For getting that, you should do the following steps:
 - Open the [Firebase console](https://console.firebase.google.com/) and open the app you created in previous steps.
@@ -93,23 +111,33 @@ To prevent an [error](https://github.com/aws-amplify/amplify-js/issues/5010) in 
 ### IOS
 #### Setup
 1. Add the `@react-native-community/push-notification-ios` by the following command:
-`npm install @react-native-community/push-notification-ios` or `yarn add @react-native-community/push-notification-ios`
-2. `cd ios && pod install && cd ..`
+ ```bash
+        npm install @react-native-community/push-notification-ios
+ ``` 
+or
+
+ ```bash
+     yarn add @react-native-community/push-notification-ios`
+ ```
+2. Run the following commands:
+    ```bash
+    cd ios && pod install && cd ..
+    ```
 3. Add the notifications to the amply for ios by `amplify add notifications` command:
     1. Choose `APNS` when promoted:
-    ```bash
+     ```bash
      ? Choose the push notification channel to enable.
         > APNS
         FCM
         Email
         SMS
-    ```
+     ```
     2. Then you will be prompted for the authentication method. It is recommended to choose the certificate. 
-    ```bash
+     ```bash
     ? Choose authentication method used for APNs (Use arrow keys)
     > Certificate
     Key
-    ```
+     ```
     3. If you have chosen the certificate, then you will be prompted for the .p12 certificate path file. (You can use this [tutorial](https://mobincube.zendesk.com/hc/en-us/articles/200511933-How-to-get-the-p12-file-and-provisioning-profile-for-publishing-an-app-on-App-Store) to get that).
 4. Run `amplify push`.
 5. Open the `.xcworkspace` project with the XCode.
@@ -154,15 +182,22 @@ There can be an issue in android that this method never be called! However a [wo
 ...
 import {NativeModules} from 'react-native';
 ...
-NativeModules.RNPushNotification.getToken((token) => console.log(token));
+NativeModules.RNPushNotification.getToken((token) => {
+  console.log(`PushToken: ${token}`);
+});
 ...
 ```
 #### onNotification
 In case you want to do something when the notification is recieved the `onNotification` method is for acting based on the recieved notification. Don't forget to that the notification object structure is diffrent from Android and IOS. In IOS, You [Should](https://reactnative.dev/docs/pushnotificationios.html#finish) use the `finish` method. You can add the following code to `App.js`:
 ```js
+...
+import PushNotificationIOS from '@react-native-community/push-notification-ios';
+...
 PushNotification.onNotification((notification) => {
   console.log('in app notification', notification);
-  notification.finish(PushNotificationIOS.FetchResult.NoData);
+  if (Platform.OS === 'ios') {
+    notification.finish(PushNotificationIOS.FetchResult.NoData);
+  }
 });
 ```
 
