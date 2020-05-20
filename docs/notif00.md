@@ -118,12 +118,12 @@ To prevent an [error](https://github.com/aws-amplify/amplify-js/issues/5010) in 
 #### Setup
 1. Add the `@react-native-community/push-notification-ios` by the following command:
  ```bash
-        npm install @react-native-community/push-notification-ios
+ npm install @react-native-community/push-notification-ios
  ``` 
 or
 
  ```bash
-     yarn add @react-native-community/push-notification-ios`
+yarn add @react-native-community/push-notification-ios`
  ```
 2. Run the following commands:
     ```bash
@@ -322,6 +322,8 @@ amplify notification console
 ![Success](/img/notification/notif_testing_message_success.png)
 After a couple of seconds, You will see the push notification in your device:
 ![Push notification result](/img/notification/notif_android_push_result.png)
+
+## Done ✅
 
 #### Refrences:
 
