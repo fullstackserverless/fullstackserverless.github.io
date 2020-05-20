@@ -325,7 +325,7 @@ After a couple of seconds, You will see the push notification in your device:
 
 ## Done ✅
 
-#### Refrences:
+#### References:
 
 [Amplify Docs](https://docs.amplify.aws/lib/push-notifications/getting-started/q/platform/js)
 
