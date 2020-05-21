@@ -32,10 +32,10 @@ Here is how the answers can be:
 ![Initialize Amplify](/img/notification/notif_amplify_init.png)
 - Add the required dependencies with:
 <Tabs
-  defaultValue="npm"
+  defaultValue="yarn"
   values={[
-    {label: 'npm', value: 'npm'},
     {label: 'yarn', value: 'yarn'},
+    {label: 'npm', value: 'npm'},
   ]}>
   <TabItem value="npm">
 
@@ -59,9 +59,29 @@ react-native link @aws-amplify/pushnotification
 ```
 :::caution
 To prevent an [error](https://github.com/aws-amplify/amplify-js/issues/5010) in the future add the `netinfo` library. You can add it to your  project by the following command (in case your don't have it):
-```bash
+
+<Tabs
+  defaultValue="yarn"
+  values={[
+    {label: 'yarn', value: 'yarn'},
+    {label: 'npm', value: 'npm'},
+  ]}>
+  <TabItem value="npm">
+
+  ```bash
+  npm install --save @react-native-community/netinfo
+  ```
+
+  </TabItem>
+  <TabItem value="yarn">
+
+ ```bash
  yarn add @react-native-community/netinfo
-```
+ ```
+
+  </TabItem>
+</Tabs>
+
 :::
 
 ![Step02](/img/steps/02.png)
@@ -137,10 +157,10 @@ To prevent an [error](https://github.com/aws-amplify/amplify-js/issues/5010) in 
 #### Setup
 1. Add the `@react-native-community/push-notification-ios` by the following command:
  <Tabs
-  defaultValue="npm"
+  defaultValue="yarn"
   values={[
-    {label: 'npm', value: 'npm'},
     {label: 'yarn', value: 'yarn'},
+    {label: 'npm', value: 'npm'},
   ]}>
   <TabItem value="npm">
 
