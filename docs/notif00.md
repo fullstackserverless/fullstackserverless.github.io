@@ -3,6 +3,9 @@ id: notif-00
 title: Push Notification with Amplify   
 sidebar_label: Push Notification 
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Push notifications play an essential role in any Application. It can considerably increase the user engagement, and it might be an asked feature from the end-user.
 
 ![Push Notifications](/img/notification/00.png)
@@ -28,22 +31,38 @@ Initialize our AWS Amplify project in the root directory.
 Here is how the answers can be:
 ![Initialize Amplify](/img/notification/notif_amplify_init.png)
 - Add the required dependencies with:
-```bash
-npm install aws-amplify && npm install @aws-amplify/pushnotification
-``` 
-or 
-```bash
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
+  ```bash
+  npm install --save aws-amplify @aws-amplify/pushnotification
+  ```
+
+  </TabItem>
+  <TabItem value="yarn">
+
+ ```bash
  yarn add aws-amplify @aws-amplify/pushnotification
  ```
+
+  </TabItem>
+</Tabs>
+
 - you need to link the push notification dependency with:
 ```bash
 react-native link @aws-amplify/pushnotification
 ```
-
+:::caution
 To prevent an [error](https://github.com/aws-amplify/amplify-js/issues/5010) in the future add the `netinfo` library. You can add it to your  project by the following command (in case your don't have it):
 ```bash
  yarn add @react-native-community/netinfo
 ```
+:::
 
 ![Step02](/img/steps/02.png)
 
@@ -56,7 +75,7 @@ To prevent an [error](https://github.com/aws-amplify/amplify-js/issues/5010) in 
 ![Cloud Messaging](/img/notification/notif_cloud_messaging.png)
 4. Click on the Android and follow the following steps:
     1. Fill in the form and register the app. `Android package name` can be found in `android/app/build.gradle`. It is stored as `applicationId` like this:
-    ```gradle
+    ```gradle title="android/app/build.gradle"
        defaultConfig {
         applicationId "com.amplifypush"
         ...
@@ -65,7 +84,7 @@ To prevent an [error](https://github.com/aws-amplify/amplify-js/issues/5010) in 
     3. Add the Firebase SDK as the instructions. Consider the `<project>` the `android` and `<app-module>` the `app` directory in the react native project. Don't forget to add the latest version of `firebase-messaging` from [here](https://firebase.google.com/docs/android/setup#available-libraries) as well ad the `firebase-analytics` in `dependencies`.
     4. run the project in Android and you will see that the verification of Firebase. (you can skip this step)
 5. Open the `android/app/src/main/AndroidManifest.xml` and add the following code in the `application` element:
- ```xml
+ ```xml title="android/app/src/main/AndroidManifest.xml"
  <!--[START Push notification config -->
          <!-- [START firebase_service] -->
          <service
@@ -117,14 +136,29 @@ To prevent an [error](https://github.com/aws-amplify/amplify-js/issues/5010) in 
 ### IOS
 #### Setup
 1. Add the `@react-native-community/push-notification-ios` by the following command:
- ```bash
- npm install @react-native-community/push-notification-ios
- ``` 
-or
+ <Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'npm', value: 'npm'},
+    {label: 'yarn', value: 'yarn'},
+  ]}>
+  <TabItem value="npm">
+
+  ```bash
+  npm install --save @react-native-community/push-notification-ios
+  ```
+
+  </TabItem>
+  <TabItem value="yarn">
 
  ```bash
-yarn add @react-native-community/push-notification-ios`
+ yarn add @react-native-community/push-notification-ios`
  ```
+
+  </TabItem>
+</Tabs>
+ 
+ 
 2. Run the following commands:
     ```bash
     cd ios && pod install && cd ..
@@ -182,7 +216,7 @@ PushNotification.onRegister((token) => {
   PushNotification.updateEndpoint(token);
 });
 ```
-**attention**:
+:::caution Attention
 There can be an issue in android that this method never be called! However a [workaround](https://github.com/aws-amplify/amplify-js/issues/2643#issuecomment-523610933) can be like this anywhere you might need the token:
 ```js
 ...
@@ -193,6 +227,7 @@ NativeModules.RNPushNotification.getToken((token) => {
 });
 ...
 ```
+:::
 #### onNotification
 In case you want to do something when the notification is recieved the `onNotification` method is for acting based on the recieved notification. Don't forget to that the notification object structure is diffrent from Android and IOS. In IOS, You [Should](https://reactnative.dev/docs/pushnotificationios.html#finish) use the `finish` method. You can add the following code to `App.js`:
 ```js
