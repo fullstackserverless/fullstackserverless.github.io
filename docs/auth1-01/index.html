@@ -8,33 +8,33 @@
 
 <title data-react-helmet="true">Authentication | #fullStackServerless</title>
 
-<meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" property="og:title" content="Authentication | #fullStackServerless"><meta data-react-helmet="true" name="description" content="I decided to make  two-part authentication series. In this first part, we will make default authentication "><meta data-react-helmet="true" property="og:description" content="I decided to make  two-part authentication series. In this first part, we will make default authentication "><meta data-react-helmet="true" property="og:url" content="https://fullstackserverless.github.io/docs/auth1-01">
+<meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" property="og:title" content="Authentication | #fullStackServerless"><meta data-react-helmet="true" name="description" content="I decided to make  two-part authentication series. In this first part, we will make default authentication "><meta data-react-helmet="true" property="og:description" content="I decided to make  two-part authentication series. In this first part, we will make default authentication "><meta data-react-helmet="true" property="og:url" content="https://fullstackserverless.github.io/docs/auth1-01">
 
 <link data-react-helmet="true" rel="shortcut icon" href="/img/favicon.ico">
 
 
-<link rel="stylesheet" href="/styles.a23b5aff.css">
+<link rel="stylesheet" href="/styles.d50ab616.css">
 
 
-<link rel="preload" href="/styles.7d63e6cf.js" as="script">
+<link rel="preload" href="/styles.a464a198.js" as="script">
 
-<link rel="preload" href="/runtime~main.d90c22af.js" as="script">
+<link rel="preload" href="/runtime~main.e26a39a2.js" as="script">
 
-<link rel="preload" href="/main.2dbd4cbf.js" as="script">
+<link rel="preload" href="/main.128f98ce.js" as="script">
 
-<link rel="preload" href="/1.f2803615.js" as="script">
+<link rel="preload" href="/1.0d3aea8a.js" as="script">
 
-<link rel="preload" href="/2.18029ea9.js" as="script">
+<link rel="preload" href="/2.548ed01a.js" as="script">
 
-<link rel="preload" href="/3.b0470b8b.js" as="script">
+<link rel="preload" href="/3.e4f38501.js" as="script">
 
-<link rel="preload" href="/1be78505.2f97bdf1.js" as="script">
+<link rel="preload" href="/1be78505.e89f2520.js" as="script">
 
-<link rel="preload" href="/20ac7829.c103ba82.js" as="script">
+<link rel="preload" href="/20ac7829.cc5a9c3b.js" as="script">
 
-<link rel="preload" href="/17896441.5d9ea049.js" as="script">
+<link rel="preload" href="/17896441.42dc0ad8.js" as="script">
 
-<link rel="preload" href="/550fd867.bf2032f8.js" as="script">
+<link rel="preload" href="/29308b07.08360e7a.js" as="script">
 
 </head>
 <body>
@@ -67,25 +67,25 @@ Check for errors.</p><p>Add to App.js</p><div class="mdxCodeBlock_iHAB"><div cla
 </span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&lt;</span><span class="token tag class-name" style="color:rgb(255, 203, 107)">Localei18n</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">/&gt;</span><span class="token plain"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&lt;</span><span class="token tag class-name" style="color:rgb(255, 203, 107)">Authenticator</span><span class="token tag" style="color:rgb(255, 85, 114)"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token tag" style="color:rgb(255, 85, 114)">  </span><span class="token tag attr-name" style="color:rgb(255, 203, 107)">usernameAttributes</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">=</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag attr-value" style="color:rgb(255, 85, 114)">email</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag" style="color:rgb(255, 85, 114)"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token tag" style="color:rgb(255, 85, 114)">  </span><span class="token tag attr-name" style="color:rgb(255, 203, 107)">signUpConfig</span><span class="token tag script language-javascript script-punctuation punctuation" style="color:rgb(199, 146, 234)">=</span><span class="token tag script language-javascript punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token tag script language-javascript" style="color:rgb(255, 85, 114)">signUpConfig</span><span class="token tag script language-javascript punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token tag" style="color:rgb(255, 85, 114)"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token tag" style="color:rgb(255, 85, 114)">  </span><span class="token tag attr-name" style="color:rgb(255, 203, 107)">theme</span><span class="token tag script language-javascript script-punctuation punctuation" style="color:rgb(199, 146, 234)">=</span><span class="token tag script language-javascript punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token tag script language-javascript" style="color:rgb(255, 85, 114)">AmplifyTheme</span><span class="token tag script language-javascript punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token tag" style="color:rgb(255, 85, 114)"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token tag" style="color:rgb(255, 85, 114)"></span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">/&gt;</span></div></div></div></div></div><p>We start the project, where we see that localization has not yet been applied. Therefore, we change the language into Russian in the settings of our simulator</p><p><img src="/img/auth/auth06.png" alt="Localei18n"></p><h2><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_ZqCz" id="done-"></a><a aria-hidden="true" tabindex="-1" class="hash-link" href="#done-" title="Direct link to heading">#</a>Done ✅</h2><p><a href="https://www.patreon.com/bePatron?u=34467235"><img src="/img/logo/patreon.png" alt="Become a Patron!"></a></p></div></article><div class="margin-vert--xl"><div class="row"><div class="col"><a href="https://github.com/facebook/docusaurus/edit/master/website/docs/auth1.01.md" target="_blank" rel="noreferrer noopener"><svg fill="currentColor" height="1.2em" width="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40" style="margin-right:0.3em;vertical-align:sub"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div></div></div><div class="margin-vert--lg"><nav class="pagination-nav"><div class="pagination-nav__item"><a class="pagination-nav__link" href="/docs/auth1-00"><div class="pagination-nav__link--sublabel">Previous</div><div class="pagination-nav__link--label">« Introduction</div></a></div><div class="pagination-nav__item pagination-nav__item--next"><a class="pagination-nav__link" href="/docs/auth1-02"><div class="pagination-nav__link--sublabel">Next</div><div class="pagination-nav__link--label">Authentication »</div></a></div></nav></div></div></div><div class="col col--3"><div class="tableOfContents_TbNY"><ul class="contents contents__left-border"><li><a href="#create-a-new-project-️" class="contents__link">Create a new project ⚛️</a></li><li><a href="#connect-the-icons-" class="contents__link">Connect the icons 👾</a></li><li><a href="#register-your-aws-account" class="contents__link">Register your AWS account</a></li><li><a href="#initializing-aws-amplify-in-a-react-native-project" class="contents__link">Initializing AWS Amplify in a React Native Project</a></li><li><a href="#connect-authentication-plugin" class="contents__link">Connect authentication plugin</a></li><li><a href="#connect-aws-amplify-to-react-native-️" class="contents__link">Connect AWS Amplify to React Native ⚛️</a></li><li><a href="#edit-the-project-structure" class="contents__link">Edit the project structure</a></li><li><a href="#minimum-project-configuration-and-authenticator-module" class="contents__link">Minimum project configuration and Authenticator module</a></li><li><a href="#edit-inputs-in-appjs" class="contents__link">Edit Inputs in App.js</a></li><li><a href="#change-ui-theme--" class="contents__link">Change UI theme  🖌</a></li><li><a href="#connect-localization" class="contents__link">Connect localization</a></li><li><a href="#done-" class="contents__link">Done ✅</a></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container"><div class="row footer__links"><div class="col footer__col"><h4 class="footer__title">Tutorials</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" href="/docs/startup00">Startup</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/unicorn00">UI Kit</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/auth1-00">Authentication</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/amplify-00">AWS Amplify</a></li></ul></div><div class="col footer__col"><h4 class="footer__title">Community</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" target="_blank" rel="noopener noreferrer" href="https://discord.gg/Ntuttww">Discord</a></li></ul></div><div class="col footer__col"><h4 class="footer__title">Social</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" target="_blank" rel="noopener noreferrer" href="https://dev.to/playra">Dev.to</a></li><li class="footer__item"><a class="footer__link-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/koshasuperstar">Twitter</a></li><li class="footer__item"><a class="footer__link-item" target="_blank" rel="noopener noreferrer" href="https://www.patreon.com/fullstackserverless">Patreon</a></li><li class="footer__item"><a class="footer__link-item" target="_blank" rel="noopener noreferrer" href="https://github.com/fullstackserverless">GitHub</a></li></ul></div></div><div class="text--center"><div class="margin-bottom--sm"><a href="https://opensource.facebook.com/" target="_blank" rel="noopener noreferrer" class="footerLogoLink_1Wg7"><img class="footer__logo" alt="Facebook Open Source Logo" src="/img/oss_logo.png"></a></div><div>Copyright © 2020 @playra. Built with Docusaurus.</div></div></div></footer>
 </div>
 
-<script src="/styles.7d63e6cf.js"></script>
+<script src="/styles.a464a198.js"></script>
 
-<script src="/runtime~main.d90c22af.js"></script>
+<script src="/runtime~main.e26a39a2.js"></script>
 
-<script src="/main.2dbd4cbf.js"></script>
+<script src="/main.128f98ce.js"></script>
 
-<script src="/1.f2803615.js"></script>
+<script src="/1.0d3aea8a.js"></script>
 
-<script src="/2.18029ea9.js"></script>
+<script src="/2.548ed01a.js"></script>
 
-<script src="/3.b0470b8b.js"></script>
+<script src="/3.e4f38501.js"></script>
 
-<script src="/1be78505.2f97bdf1.js"></script>
+<script src="/1be78505.e89f2520.js"></script>
 
-<script src="/20ac7829.c103ba82.js"></script>
+<script src="/20ac7829.cc5a9c3b.js"></script>
 
-<script src="/17896441.5d9ea049.js"></script>
+<script src="/17896441.42dc0ad8.js"></script>
 
-<script src="/550fd867.bf2032f8.js"></script>
+<script src="/29308b07.08360e7a.js"></script>
 
 
 </body>
