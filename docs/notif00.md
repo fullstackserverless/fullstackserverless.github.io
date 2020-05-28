@@ -29,13 +29,14 @@ cd amplifyPush
 Initialize our AWS Amplify project in the root directory.
 `amplify init`
 Here is how the answers can be:
+
 ![Initialize Amplify](/img/notification/notif_amplify_init.png)
 - Add the required dependencies with:
 <Tabs
-  defaultValue="npm"
+  defaultValue="yarn"
   values={[
-    {label: 'npm', value: 'npm'},
     {label: 'yarn', value: 'yarn'},
+    {label: 'npm', value: 'npm'},
   ]}>
   <TabItem value="npm">
 
@@ -59,9 +60,29 @@ react-native link @aws-amplify/pushnotification
 ```
 :::caution
 To prevent an [error](https://github.com/aws-amplify/amplify-js/issues/5010) in the future add the `netinfo` library. You can add it to your  project by the following command (in case your don't have it):
-```bash
+
+<Tabs
+  defaultValue="yarn"
+  values={[
+    {label: 'yarn', value: 'yarn'},
+    {label: 'npm', value: 'npm'},
+  ]}>
+  <TabItem value="npm">
+
+  ```bash
+  npm install --save @react-native-community/netinfo
+  ```
+
+  </TabItem>
+  <TabItem value="yarn">
+
+ ```bash
  yarn add @react-native-community/netinfo
-```
+ ```
+
+  </TabItem>
+</Tabs>
+
 :::
 
 ![Step02](/img/steps/02.png)
@@ -72,7 +93,8 @@ To prevent an [error](https://github.com/aws-amplify/amplify-js/issues/5010) in 
 1. Open the [Firebase console](https://console.firebase.google.com/).
 2. Open or create a project for further steps.
 3. Select the `Cloud Messaging` in the dashboard.
-![Cloud Messaging](/img/notification/notif_cloud_messaging.png)
+
+ ![Cloud Messaging](/img/notification/notif_cloud_messaging.png)
 4. Click on the Android and follow the following steps:
     1. Fill in the form and register the app. `Android package name` can be found in `android/app/build.gradle`. It is stored as `applicationId` like this:
     ```gradle title="android/app/build.gradle"
@@ -127,9 +149,11 @@ To prevent an [error](https://github.com/aws-amplify/amplify-js/issues/5010) in 
 4. You will be asked for `ApiKey`. For getting that, you should do the following steps:
 - Open the [Firebase console](https://console.firebase.google.com/) and open the app you created in previous steps.
 - Click on the gear icon in the `Project Overview` section of the dashboard and select the `Project settings`.
-![Project settings](/img/notification/notif_project_settings.png)
+
+ ![Project settings](/img/notification/notif_project_settings.png)
 - Select the `Cloud Messaging` tab and copy the value of the `Server key`.
-![Project settings](/img/notification/notif_api_key.png)
+
+ ![Project settings](/img/notification/notif_api_key.png)
 5. Paste the value for requested `ApiKey`.
 6. After the setup is completed, run the `amplify push` command.
 
@@ -137,10 +161,10 @@ To prevent an [error](https://github.com/aws-amplify/amplify-js/issues/5010) in 
 #### Setup
 1. Add the `@react-native-community/push-notification-ios` by the following command:
  <Tabs
-  defaultValue="npm"
+  defaultValue="yarn"
   values={[
-    {label: 'npm', value: 'npm'},
     {label: 'yarn', value: 'yarn'},
+    {label: 'npm', value: 'npm'},
   ]}>
   <TabItem value="npm">
 
@@ -347,20 +371,24 @@ amplify notification console
 
 4. In the `Channel` section, select the `Push notifications`.
 5. The `Destinations` section is as follow:
+
   ![Destinations](/img/notification/notif_testing_message_dest.png)
     1. `Destination type` defines whether you want to use `Endpoint IDs` or `Device Tokens`(or `Push token` in previous steps) in the next text input.
     2. Paste the token you want to use, Based on the selected `Destination type`.
     3. If you have chosen the `Endpoint IDs` and used endpoint, then the `Push notifications service` can automatically detect your device. Otherwise, if you have used `Device token`, for IOS, choose the `APNS` and for Android choose the `FCM`.
 6. You can fill the `Message` section like below and press the `Send message` button.
-![Destinations](/img/notification/notif_testing_message_message.png)
+
+ ![Destinations](/img/notification/notif_testing_message_message.png)
 7. You will get a success message like below if everything is ok.
-![Success](/img/notification/notif_testing_message_success.png)
+
+ ![Success](/img/notification/notif_testing_message_success.png)
 After a couple of seconds, You will see the push notification in your device:
-![Push notification result](/img/notification/notif_android_push_result.png)
+
+ ![Push notification result](/img/notification/notif_android_push_result.png)
 
 ## Done ✅
 
-#### References:
+## References:
 
 [Amplify Docs](https://docs.amplify.aws/lib/push-notifications/getting-started/q/platform/js)
 
