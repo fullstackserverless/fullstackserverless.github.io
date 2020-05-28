@@ -13,6 +13,7 @@ import Layout from '@theme/Layout'
 import Link from '@docusaurus/Link'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import useBaseUrl from '@docusaurus/useBaseUrl'
+//import Iframe from 'react-iframe'
 import YouTube from 'react-youtube'
 import styles from './styles.module.css'
 
@@ -119,4 +120,13 @@ function Home() {
   )
 }
 
+//<Iframe
+//url="https://us-west-2.sumerian.aws/4cad7c45d1994504a01994050c1f5271.scene"
+//width="100%"
+//height="600"
+//id="myId"
+//className="myClassname"
+//display="initial"
+//position="relative"
+///>
 export default Home
