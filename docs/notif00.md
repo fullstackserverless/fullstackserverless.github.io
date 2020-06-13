@@ -373,7 +373,7 @@ react-native run-android
 ```
 
 To go further, we need one of the `endpoint ID` or `Push Token`.
-[Here]() is an explanation of `endpoint` in `aws` services:
+[Here](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints.html) is an explanation of `endpoint` in `aws` services:
 
 > An endpoint represents a destination that you can send messages to, such as a mobile device, email address, or phone number.
 
