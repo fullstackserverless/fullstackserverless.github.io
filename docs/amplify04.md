@@ -121,7 +121,7 @@ or
 ## Register your AWS account
 
 Step For Those Not Yet AWS Registered
-We register according to [this](https://aws-amplify.github.io/docs/) instructions 📃 and by the video tutorial ем we check all 5 steps.
+We register according to [this](https://portal.aws.amazon.com/billing/signup?redirect_url=https%3A%2F%2Faws.amazon.com%2Fregistration-confirmation#/start) instructions 📃 and by the video tutorial ем we check all 5 steps.
 
 <div class="alert alert--warning" role="alert">
 You need a bank card 💳, where should be more than 1$ 💵 
@@ -224,7 +224,7 @@ Modeling your data and creating the models used by the DataStore is the first st
 
 Since we described the circuit in the last lesson, now it’s enough for us to run the command
 
-````bash
+```bash
 amplify codegen model
 ```
 
@@ -238,7 +238,7 @@ We include DataStore for all API
 
 ```bash
 amplify update api
-````
+```
 
 ![amplify update api](/img/dataStore/dataStore03.png)
 
