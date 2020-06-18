@@ -86,6 +86,18 @@ At the end of this lesson we will collect with you this mobile application using
 
 ![dataStore](/img/dataStore/dataStore07.png)
 
+## How much does it all cost?
+
+With AWS AppSync, you pay only for what you use with no minimum fees or mandatory service usage. You are billed separately for query and data modification operations, and for performing real-time updates on your data. This provides you with transparency and a low price regardless of your workload type, because you only pay for the specific AWS AppSync features you use.
+
+Query and Data Modification Operations
+
+Query Operations enable your app to fetch data and cache it locally. Data Modification Operations enable your app to create, update, and delete data.
+
+4.00 dollars per million Query and Data Modification Operations\*
+
+[Details](https://aws.amazon.com/appsync/pricing/)
+
 # Go!
 
 Our AWS Amplify support chat [Discord](https://discord.gg/Ntuttww)
@@ -218,7 +230,7 @@ More about [here](https://fullstackserverless.github.io/docs/amplify-03#schemagr
 
 ## Model generation
 
-Modeling your data and creating the models used by the DataStore is the first step to getting started. GraphQL is used as a common language for JavaScript, iOS and Android for this process, and is also used as a network protocol when synchronizing with the cloud. GraphQL also supports some features, such as Automerge in AppSync. Model generation can be done using the NPX script or from the command line using the Amplify CLI.
+Modeling your data and creating the models used by the DataStore is the first step to getting started. GraphQL is used as a common language for JavaScript, iOS and Android for this process, and is also used as a network protocol when synchronizing with the cloud. GraphQL also supports some features, such as Automerge in AppSync.
 
 > You do not need an AWS account to run it and use DataStore locally, however, if you want to synchronize with the cloud, it is recommended to install and configure Amplify CLI as in the last lesson
 
