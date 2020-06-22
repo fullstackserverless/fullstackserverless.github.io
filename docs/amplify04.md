@@ -7,6 +7,7 @@ sidebar_label: DataStore - CRUD
 # Goodbye Redux, MobX, Apollo!
 
 The line between the backend and the frontend is broken! An innovative step in the evolution of state managers.
+[YouTube](https://www.youtube.com/watch?v=rKTHKZ87Hh4&feature=youtu.be)
 
 ![DataStore](/img/dataStore/00.png)
 
