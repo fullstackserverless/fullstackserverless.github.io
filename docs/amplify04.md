@@ -4,13 +4,11 @@ title: DataStore - CRUD (Create Read Update Delete)
 sidebar_label: DataStore - CRUD
 ---
 
-# Goodbye Redux, MobX, Apollo!
-
 The line between the backend and the frontend is broken! An innovative step in the evolution of state managers.
 
-[YouTube](https://www.youtube.com/watch?v=rKTHKZ87Hh4&feature=youtu.be)
+# Goodbye Redux, MobX, Apollo!
 
-![DataStore](/img/dataStore/00.png)
+[![AWS Amplify](/img/dataStore/youtube.gif)](https://youtu.be/rKTHKZ87Hh4)
 
 One of the most difficult tasks in developing web and mobile applications is to synchronize data between devices and perform offline operations. Ideally, when the device is offline, your customers should be able to continue to use your application not only to access data, but also to create and modify it. When the device returns online, the application must reconnect to the backend, synchronize the data and resolve conflicts, if any. Correct handling of all extreme cases requires a lot of undifferentiated code, even when using the AWS AppSync SDK cache on a device with autonomous mutations and delta synchronization.
 
