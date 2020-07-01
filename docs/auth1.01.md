@@ -3,8 +3,9 @@ id: auth1-01
 title: Authentication
 sidebar_label: Part I
 ---
-I decided to make  two-part authentication series. In this first part, we will make default authentication 
-UI component from AWS Amplify, and in the next part we will look through how to create it  from scratch
+
+I decided to make two-part authentication series. In this first part, we will make default authentication
+UI component from AWS Amplify, and in the next part we will look through how to create it from scratch
 with custom design.
 
 Source code for this part is available on [GitHub](https://github.com/react-native-village/messaga/tree/Part1).
@@ -13,11 +14,9 @@ Source code for this part is available on [GitHub](https://github.com/react-nati
 
 ![Cognito](/img/auth/auth1-03.png)
 
-
-
 ![Step01](/img/steps/01.png)
-## Create a new project ⚛️
 
+## Create a new project ⚛️
 
 ```bash
 react-native init auth
@@ -26,16 +25,19 @@ react-native init auth
 We start the project 🚀
 
 iOS
+
 ```bash
 cd auth && react-native run-ios
 ```
 
 Android
+
 ```bash
 cd auth && react-native run-android
 ```
 
 ![Step02](/img/steps/02.png)
+
 ## Connect the icons 👾
 
 Since the icons are used by the AWS Amplify framework, we therefore connect them according to [this](https://github.com/oblador/react-native-vector-icons#installation) instructions 📃.
@@ -55,18 +57,21 @@ const App = () => {
 }
 ```
 
+После этого подключаем
+
 ![Step03](/img/steps/03.png)
+
 ## Register your AWS account
 
 Register using [this](https://aws-amplify.github.io/docs/) instruction 📃 and check out all 5 steps in the video tutorial.
 
-#### Attention!!!
-
-You need a bank card 💳, where should be more than 1 $ 💵
+:::caution You need a bank card 💳, where should be more than 1 \$ 💵
+:::
 
 There we look and put the Amplify Command Line Interface (CLI)
 
 ![Step04](/img/steps/04.png)
+
 ## Initializing AWS Amplify in a React Native Project
 
 Initialize our AWS Amplify project in the root directory.
@@ -79,9 +84,10 @@ Answer these questions:
 
 ![amplify init](/img/auth/auth02.png)
 
-The project successfully initialized 🚀 
+The project successfully initialized 🚀
 
 ![Step05](/img/steps/05.png)
+
 ## Connect authentication plugin
 
 Now that the application is in the cloud, you can add some features, such as allowing users to register with our application and log in.
@@ -91,13 +97,12 @@ Use command:
 ```bash
 amplify add auth
 ```
+
 Connect the authentication function. Select the default configuration. This adds auth resource configurations locally to your ampify/backend/auth directory
 
 <div class="alert alert--info" role="alert">
   📌 Select the profile we want to use. default. Enter and how users will log in. Email (write off money for SMS).
 </div>
-
-
 
 ![amplify init](/img/auth/auth03.png)
 
@@ -109,12 +114,11 @@ amplify push
 
 ✔ All resources are updated in the cloud
 
-
 ![Step06](/img/steps/06.png)
+
 ## Connect AWS Amplify to React Native ⚛️
 
 Details can be found in [this](https://aws-amplify.github.io/docs/js/react) instruction 📃.In short, you can add these dependencies below to connect AWS Amplify:
-
 
 ```bash
 yarn add aws-amplify @aws-amplify/core aws-amplify-react-native amazon-cognito-identity-js @react-native-community/netinfo
@@ -127,9 +131,10 @@ cd ios && pod install && cd ..
 ```
 
 ![Step07](/img/steps/07.png)
+
 ## Edit the project structure
 
-Create  /src directory and transfer the App.js file there, then rename it to index.js
+Create /src directory and transfer the App.js file there, then rename it to index.js
 
 Edit import in /auth/index.js and hide future warnings.
 
@@ -139,7 +144,7 @@ import App from './src'
 import { name as appName } from './app.json'
 
 YellowBox.ignoreWarnings([
-  'Warning: AsyncStorage',  
+  'Warning: AsyncStorage',
   'Warning: componentWillReceiveProps',
   'RCTRootView cancelTouches',
   'not authenticated',
@@ -152,6 +157,7 @@ AppRegistry.registerComponent(appName, () => App)
 ```
 
 ![Step08](/img/steps/08.png)
+
 ## Minimum project configuration and Authenticator module
 
 Amplify.configure - project configuration
@@ -160,16 +166,16 @@ Authenticator - The [AWS Amplify Authentication](https://aws-amplify.github.io/d
 
 ```jsx
 import React from 'react'
-import {StatusBar} from 'react-native'
+import { StatusBar } from 'react-native'
 import Amplify from '@aws-amplify/core'
-import {Authenticator} from 'aws-amplify-react-native'
+import { Authenticator } from 'aws-amplify-react-native'
 import awsconfig from '../aws-exports'
 
 Amplify.configure({
   ...awsconfig,
   Analytics: {
-    disabled: true,
-  },
+    disabled: true
+  }
 })
 
 const App = () => {
@@ -189,6 +195,7 @@ We start the simulator, where we are met by the authentication UI component:
 ![Cognito](/img/auth/auth04.png)
 
 ![Step09](/img/steps/09.png)
+
 ## Edit Inputs in App.js
 
 To do this, add signUpConfig
@@ -221,12 +228,11 @@ const signUpConfig = {
 />
 ```
 
-
 ![Step10](/img/steps/10.png)
-## Change UI theme  🖌
+
+## Change UI theme 🖌
 
 create an export point for our future components /src/components/index.js with content
-
 
 ```jsx
 export * from './AmplifyTheme'
@@ -358,21 +364,17 @@ const AmplifyTheme = StyleSheet.create({
 export { AmplifyTheme }
 ```
 
-Apply the theme into the Authenticator component src/index.js 
+Apply the theme into the Authenticator component src/index.js
 
 ```jsx
-import {AmplifyTheme} from './components'
-
-<Authenticator
-  usernameAttributes="email"
-  signUpConfig={signUpConfig}
-  theme={AmplifyTheme}
-/>
+import { AmplifyTheme } from './components'
+;<Authenticator usernameAttributes="email" signUpConfig={signUpConfig} theme={AmplifyTheme} />
 ```
+
 ![AmplifyTheme](/img/auth/auth05.png)
 
-
 ![Step11](/img/steps/11.png)
+
 ## Connect localization
 
 In our case, the Russian language 🇷🇺
@@ -450,6 +452,7 @@ import {
   theme={AmplifyTheme}
 />
 ```
+
 We start the project, where we see that localization has not yet been applied. Therefore, we change the language into Russian in the settings of our simulator
 
 ![Localei18n](/img/auth/auth06.png)
