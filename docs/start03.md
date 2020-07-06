@@ -120,14 +120,15 @@ Where to add the scripts:
 - Install Pods
 
 ```jsx
-"scripts": {
-   "ios": "react-native run-ios --simulator='iPhone SE'",
-   "android": "react-native run-android",
-   "lint": "esw src/**",
-   "lint-watch": "esw -w --changed src/**",
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios --simulator='iPhone SE'",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "postinstall":"cd ./ios && pod install && cd .."
- },
-"precommit": "lint",
+  },
+ "precommit": "lint",
 ```
 
 ![Step05](/img/steps/05.png)

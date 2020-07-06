@@ -8,7 +8,7 @@ I decided to make two-part authentication series. In this first part, we will ma
 UI component from AWS Amplify, and in the next part we will look through how to create it from scratch
 with custom design.
 
-Source code for this part is available on [GitHub](https://github.com/react-native-village/messaga/tree/Part1).
+Source code for this part is available on [GitHub](https://github.com/fullstackserverless/auth/tree/part1).
 
 ![cognito](/img/auth/01.png)
 
@@ -57,13 +57,13 @@ const App = () => {
 }
 ```
 
-После этого подключаем
+After that we connect [ESLint & Prettierrc](https://fullstackserverless.github.io/docs/start03)
 
 ![Step03](/img/steps/03.png)
 
 ## Register your AWS account
 
-Register using [this](https://aws-amplify.github.io/docs/) instruction 📃 and check out all 5 steps in the video tutorial.
+Register using [this](https://docs.amplify.aws/start/getting-started/installation/q/integration/react-native) instruction 📃 and check out all 5 steps in the video tutorial.
 
 :::caution You need a bank card 💳, where should be more than 1 \$ 💵
 :::
@@ -232,7 +232,7 @@ const signUpConfig = {
 
 ## Change UI theme 🖌
 
-create an export point for our future components /src/components/index.js with content
+Create an export point for our future components /src/components/index.js with content
 
 ```jsx
 export * from './AmplifyTheme'
@@ -243,9 +243,15 @@ and accordingly create the /src/components/AmplifyTheme/index.js theme file itse
 ```jsx
 import { StyleSheet } from 'react-native'
 
+// Colors
 export const deepSquidInk = '#152939'
 export const linkUnderlayColor = '#FFF'
-export const errorIconColor = '#30d0fe'
+export const errorIconColor = '#DD3F5B'
+export const textInputColor = '#000000'
+export const textInputBorderColor = '#C4C4C4'
+export const placeholderColor = '#C7C7CD'
+export const buttonColor = '#FF06F4'
+export const disabledButtonColor = '#FF9FFB'
 
 const AmplifyTheme = StyleSheet.create({
   container: {
@@ -260,11 +266,18 @@ const AmplifyTheme = StyleSheet.create({
   section: {
     flex: 1,
     width: '100%',
-    padding: 30
+    justifyContent: 'space-between',
+    paddingHorizontal: 20
+  },
+  sectionScroll: {
+    flex: 1,
+    width: '100%',
+    paddingHorizontal: 20
   },
   sectionHeader: {
     width: '100%',
-    marginBottom: 32
+    marginBottom: 32,
+    paddingTop: 20
   },
   sectionHeaderText: {
     color: deepSquidInk,
@@ -281,7 +294,13 @@ const AmplifyTheme = StyleSheet.create({
   },
   sectionFooterLink: {
     fontSize: 14,
-    color: '#30d0fe',
+    color: buttonColor,
+    alignItems: 'baseline',
+    textAlign: 'center'
+  },
+  sectionFooterLinkDisabled: {
+    fontSize: 14,
+    color: disabledButtonColor,
     alignItems: 'baseline',
     textAlign: 'center'
   },
@@ -314,12 +333,12 @@ const AmplifyTheme = StyleSheet.create({
     width: '100%'
   },
   button: {
-    backgroundColor: '#30d0fe',
+    backgroundColor: buttonColor,
     alignItems: 'center',
     padding: 16
   },
   buttonDisabled: {
-    backgroundColor: '#85E4FF',
+    backgroundColor: disabledButtonColor,
     alignItems: 'center',
     padding: 16
   },
@@ -335,7 +354,8 @@ const AmplifyTheme = StyleSheet.create({
     padding: 16,
     borderWidth: 1,
     borderRadius: 3,
-    borderColor: '#C4C4C4'
+    borderColor: textInputBorderColor,
+    color: textInputColor
   },
   inputLabel: {
     marginBottom: 8
@@ -350,7 +370,8 @@ const AmplifyTheme = StyleSheet.create({
     padding: 16,
     borderWidth: 1,
     borderRadius: 3,
-    borderColor: '#C4C4C4'
+    borderColor: textInputBorderColor,
+    color: textInputColor
   },
   picker: {
     flex: 1,
@@ -358,6 +379,10 @@ const AmplifyTheme = StyleSheet.create({
   },
   pickerItem: {
     height: 44
+  },
+  signedOutMessage: {
+    textAlign: 'center',
+    padding: 20
   }
 })
 
@@ -368,7 +393,15 @@ Apply the theme into the Authenticator component src/index.js
 
 ```jsx
 import { AmplifyTheme } from './components'
-;<Authenticator usernameAttributes="email" signUpConfig={signUpConfig} theme={AmplifyTheme} />
+
+const App = () => {
+  return (
+    <>
+      <StatusBar barStyle="dark-content" />
+      <Authenticator usernameAttributes="email" signUpConfig={signUpConfig} theme={AmplifyTheme} />
+    </>
+  )
+}
 ```
 
 ![AmplifyTheme](/img/auth/auth05.png)

@@ -13,7 +13,6 @@ import Layout from '@theme/Layout'
 import Link from '@docusaurus/Link'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import useBaseUrl from '@docusaurus/useBaseUrl'
-//import Iframe from 'react-iframe'
 import YouTube from 'react-youtube'
 import styles from './styles.module.css'
 
