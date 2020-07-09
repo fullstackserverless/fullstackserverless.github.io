@@ -1,7 +1,7 @@
 ---
 id: auth1-01
 title: Authentication
-sidebar_label: Part I
+sidebar_label: Default setup
 ---
 
 I decided to make two-part authentication series. In this first part, we will make default authentication
@@ -116,7 +116,7 @@ amplify push
 
 ![Step06](/img/steps/06.png)
 
-## Connect AWS Amplify to React Native ⚛️
+## Connect AWS Amplify to React Native
 
 Details can be found in [this](https://aws-amplify.github.io/docs/js/react) instruction 📃.In short, you can add these dependencies below to connect AWS Amplify:
 
