@@ -30,7 +30,7 @@ Amplify provides much more effective security controls than other platforms. In 
 # Capabilities
 Amplify provides features such as authentication, analytics, APIs (GraphQL and REST), interactions, forecasting, PubSub, data storage, Push notifications and XR, with which you can create serverless applications with advanced capabilities based on AWS services.
 
-## Data storage 🕋
+## Data storage 💾
 Permanent storage of data on the device with the ability to send requests and synchronize data between the application and the cloud using GraphQL.
 
 ## Authentication 🛡
@@ -57,7 +57,7 @@ Adding AI / ML capabilities to the application through the use of cloud services
 ## PubSub 🛰
 Connecting the application to middleware focused on message processing in the cloud.
 
-## Storage 🕋
+## Storage 💾
 Securely manage user content in the cloud and on your device.
 
 
