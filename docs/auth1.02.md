@@ -18,7 +18,7 @@ This means that the authentication data is stored in an unencrypted form, and th
 
 Source code for this part is available on [GitHub](https://github.com/fullstackserverless/auth/tree/part2).
 
-![cognito](/img/auth/01.png)
+[![AWS Amplify](/img/auth/00.gif)](https://youtu.be/QMObthDaewQ)
 
 ![Step01](/img/steps/01.png)
 
@@ -843,7 +843,7 @@ export { Forgot }
 
 ![Step14](/img/steps/14.png)
 
-## Forgot Password Submit
+## Forgot password submit
 
 After confirming the e-mail, we call the Auth.forgotPassword (email) method and if there is such a user, we send the user to the FORGOT_PASSWORD_SUBMIT src/screens/Authenticator/ForgotPassSubmit/index.tsx screen
 

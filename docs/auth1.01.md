@@ -8,9 +8,9 @@ I decided to make two-part authentication series. In this first part, we will ma
 UI component from AWS Amplify, and in the next part we will look through how to create it from scratch
 with custom design.
 
-Source code for this part is available on [GitHub](https://github.com/fullstackserverless/auth/tree/part1).
+The source code for this part is available on [GitHub](https://github.com/fullstackserverless/auth/tree/part1).
 
-![cognito](/img/auth/01.png)
+[![AWS Amplify](/img/auth/00.gif)](https://youtu.be/QMObthDaewQ)
 
 ![Cognito](/img/auth/auth1-03.png)
 
@@ -19,10 +19,11 @@ Source code for this part is available on [GitHub](https://github.com/fullstacks
 ## Create a new project ⚛️
 
 ```bash
-react-native init auth
+npx react-native init auth
 ```
 
 We start the project 🚀
+Enter the project folder from run it.
 
 iOS
 
@@ -57,7 +58,7 @@ const App = () => {
 }
 ```
 
-After that we connect [ESLint & Prettierrc](https://fullstackserverless.github.io/docs/start03)
+In order to see errors and automatically align the code, install [ESLint & Prettierrc](https://fullstackserverless.github.io/docs/start03)
 
 ![Step03](/img/steps/03.png)
 
@@ -162,7 +163,7 @@ AppRegistry.registerComponent(appName, () => App)
 
 Amplify.configure - project configuration
 
-Authenticator - The [AWS Amplify Authentication](https://aws-amplify.github.io/docs/js/authentication#using-components-in-react--react-native) Module provides provides authentication APIs and building blocks for developers who want to create user authentication.
+Authenticator - The [AWS Amplify Authentication](https://aws-amplify.github.io/docs/js/authentication#using-components-in-react--react-native) Module provides authentication APIs and building blocks for developers who want to create user authentication.
 
 ```jsx
 import React from 'react'
