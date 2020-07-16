@@ -1,0 +1,18 @@
+{
+  "id": "unicorn00",
+  "title": "UI Kit - Unicorn",
+  "description": "Since the layout of components takes up to about 60% of the total code of my lessons, I decided to put all the components in a separate library, thereby, in subsequent lessons, we will focus on business logic, and not on typesetting of components.",
+  "source": "@site/docs/unicorn00.md",
+  "permalink": "/docs/unicorn00",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/unicorn00.md",
+  "sidebar_label": "Introduction",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Startup Unicorn 🦄",
+    "permalink": "/docs/startup00"
+  },
+  "next": {
+    "title": "UI Kit - Unicorn",
+    "permalink": "/docs/unicorn01"
+  }
+}

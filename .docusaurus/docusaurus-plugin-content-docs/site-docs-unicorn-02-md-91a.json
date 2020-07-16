@@ -1,0 +1,18 @@
+{
+  "id": "unicorn02",
+  "title": "UI Kit - Unicorn",
+  "description": "# Installation ",
+  "source": "@site/docs/unicorn02.md",
+  "permalink": "/docs/unicorn02",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/unicorn02.md",
+  "sidebar_label": "Installation",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "UI Kit - Unicorn",
+    "permalink": "/docs/unicorn01"
+  },
+  "next": {
+    "title": "Введение",
+    "permalink": "/docs/auth1-00"
+  }
+}

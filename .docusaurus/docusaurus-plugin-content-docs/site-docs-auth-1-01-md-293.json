@@ -1,0 +1,18 @@
+{
+  "id": "auth1-01",
+  "title": "Аутентификация",
+  "description": "В этoй части мы настроим UI компонент аутентификации от AWS Amplify, а в следующей мы создадим его с нуля.",
+  "source": "@site/docs/auth1.01.md",
+  "permalink": "/docs/auth1-01",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/auth1.01.md",
+  "sidebar_label": "Часть I",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Введение",
+    "permalink": "/docs/auth1-00"
+  },
+  "next": {
+    "title": "Аутентификация",
+    "permalink": "/docs/auth1-02"
+  }
+}

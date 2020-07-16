@@ -1,0 +1,18 @@
+{
+  "id": "amplify-01",
+  "title": "Serverless",
+  "description": "Создание бэкенда на AWS Amplify (DataStore + AppSync) — это работа с бессерверной (англ. serverless) технологией, поэтому перед тем, как продолжить писать код, мы с вами разберемся с тем, что такое бессерверные вычисления и в чем их преимущества над серверными.",
+  "source": "@site/docs/amplify01.md",
+  "permalink": "/docs/amplify-01",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/amplify01.md",
+  "sidebar_label": "Serverless",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "AWS Amplify",
+    "permalink": "/docs/amplify-00"
+  },
+  "next": {
+    "title": "Что такое GraphQL?",
+    "permalink": "/docs/amplify-02"
+  }
+}

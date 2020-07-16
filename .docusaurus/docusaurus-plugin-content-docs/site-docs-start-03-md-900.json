@@ -1,0 +1,18 @@
+{
+  "id": "start03",
+  "title": "ESLint & Prettierrc",
+  "description": "[ES Lint plugin](https://eslint.org) - write your code more clean, tells where you are making mistakes, and generally it’s good practice to work in a team so that everyone has everything one style - ES Lint will tell you which variables you don’t use, where and which components you don’t use, it shows syntax errors and where you don't put spaces correctly, where do you put semicolons, etc. That is, this is already a standard defect that you need to use in writing your code and this plugin will save you from many silly mistakes that you make when developing your application.",
+  "source": "@site/docs/start03.md",
+  "permalink": "/docs/start03",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/start03.md",
+  "sidebar_label": "ESLint & Prettierrc",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Startup Unicorn 🦄",
+    "permalink": "/docs/startup00"
+  },
+  "next": {
+    "title": "UI Kit - Unicorn",
+    "permalink": "/docs/unicorn00"
+  }
+}

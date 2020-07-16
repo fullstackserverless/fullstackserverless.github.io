@@ -1,0 +1,14 @@
+{
+  "id": "amplify-04",
+  "title": "DataStore - CRUD (Create Read Update Delete)",
+  "description": "## Прощай Redux, MobX, Apollo! Грань между бэкендом и фронтендом сломана! Инновационый шаг эволюции стейт менеджеров.",
+  "source": "@site/docs/amplify04.md",
+  "permalink": "/docs/amplify-04",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/amplify04.md",
+  "sidebar_label": "DataStore - CRUD",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Amplify API - AppSync - CRUD (Create Read Update Delete)",
+    "permalink": "/docs/amplify-03"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "permalink": "/blog/03",
+  "source": "@site/blog/2019-04-24.md",
+  "description": "# Отвечаем на вопросы заявки в [Startup Village](https://startupvillage.ru/account/competition/technology)",
+  "date": "2019-04-24T00:00:00.000Z",
+  "tags": [
+    {
+      "label": "димкаРеактнативный",
+      "permalink": "/blog/tags/димкареактнативный"
+    },
+    {
+      "label": "заметки",
+      "permalink": "/blog/tags/заметки"
+    },
+    {
+      "label": "StartupVillage",
+      "permalink": "/blog/tags/startup-village"
+    }
+  ],
+  "title": "Анкета экспонента",
+  "readingTime": 2.985,
+  "truncated": false,
+  "nextItem": {
+    "title": "Анкета заявителя для «Конкурса технологических компаний»",
+    "permalink": "/blog/02"
+  }
+}

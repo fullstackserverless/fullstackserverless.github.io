@@ -1,0 +1,19 @@
+{
+  "permalink": "/blog/00",
+  "source": "@site/blog/2019-05-08.md",
+  "description": "Akvelon is an international outsourcing company. In collaboration with such well-known companies like Microsoft, Reddit, DropBox, Evernote, we implement solutions and products that are used by millions of people in the world.",
+  "date": "2019-05-08T00:00:00.000Z",
+  "tags": [
+    {
+      "label": "reactnative",
+      "permalink": "/blog/tags/reactnative"
+    },
+    {
+      "label": "vacancy",
+      "permalink": "/blog/tags/vacancy"
+    }
+  ],
+  "title": "React Native Developer",
+  "readingTime": 1.165,
+  "truncated": false
+}

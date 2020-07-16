@@ -1,0 +1,65 @@
+{
+  "димкареактнативный": {
+    "allTagsPath": "/blog/tags",
+    "slug": "димкареактнативный",
+    "name": "димкареактнативный",
+    "count": 4,
+    "permalink": "/blog/tags/димкареактнативный"
+  },
+  "заметки": {
+    "allTagsPath": "/blog/tags",
+    "slug": "заметки",
+    "name": "заметки",
+    "count": 4,
+    "permalink": "/blog/tags/заметки"
+  },
+  "startup-village": {
+    "allTagsPath": "/blog/tags",
+    "slug": "startup-village",
+    "name": "startupvillage",
+    "count": 3,
+    "permalink": "/blog/tags/startup-village"
+  },
+  "заявка": {
+    "allTagsPath": "/blog/tags",
+    "slug": "заявка",
+    "name": "заявка",
+    "count": 1,
+    "permalink": "/blog/tags/заявка"
+  },
+  "apollo": {
+    "allTagsPath": "/blog/tags",
+    "slug": "apollo",
+    "name": "apollo",
+    "count": 1,
+    "permalink": "/blog/tags/apollo"
+  },
+  "aws-amplify": {
+    "allTagsPath": "/blog/tags",
+    "slug": "aws-amplify",
+    "name": "awsamplify",
+    "count": 1,
+    "permalink": "/blog/tags/aws-amplify"
+  },
+  "redux": {
+    "allTagsPath": "/blog/tags",
+    "slug": "redux",
+    "name": "redux",
+    "count": 1,
+    "permalink": "/blog/tags/redux"
+  },
+  "mob-x": {
+    "allTagsPath": "/blog/tags",
+    "slug": "mob-x",
+    "name": "mobx",
+    "count": 1,
+    "permalink": "/blog/tags/mob-x"
+  },
+  "reactnative": {
+    "allTagsPath": "/blog/tags",
+    "slug": "reactnative",
+    "name": "reactnative",
+    "count": 1,
+    "permalink": "/blog/tags/reactnative"
+  }
+}

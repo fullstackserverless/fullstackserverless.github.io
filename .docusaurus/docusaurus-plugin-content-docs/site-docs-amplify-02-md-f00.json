@@ -1,0 +1,18 @@
+{
+  "id": "amplify-02",
+  "title": "Что такое GraphQL?",
+  "description": "Моделирование данных в AWS Amplify осуществляется с помошью языка запросов GraphQL — это спецификация API, язык запросов для API и среда выполнения для выполнения этих запросов с вашими данными. Он имеет некоторые сходства с REST и является лучшей заменой REST.",
+  "source": "@site/docs/amplify02.md",
+  "permalink": "/docs/amplify-02",
+  "editUrl": "https://github.com/facebook/docusaurus/edit/master/website/docs/amplify02.md",
+  "sidebar_label": "GraphQL",
+  "sidebar": "someSidebar",
+  "previous": {
+    "title": "Serverless",
+    "permalink": "/docs/amplify-01"
+  },
+  "next": {
+    "title": "Amplify API - AppSync - CRUD (Create Read Update Delete)",
+    "permalink": "/docs/amplify-03"
+  }
+}
