@@ -879,6 +879,7 @@ const ForgotPassSubmit = ({ route, navigation }: ForgotPassSubmitT): ReactElemen
       const { email, code, password } = values
       await Auth.forgotPasswordSubmit(email, code, password)
       await Keychain.setInternetCredentials('auth', email, password)
+      await Auth.signIn(email, password)
       onScreen('USER', navigation)()
       setLoading(false)
     } catch (err) {
