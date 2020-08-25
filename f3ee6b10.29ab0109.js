@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[33],{132:function(a){a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"aw-scommunity","name":"awscommunity","count":1,"permalink":"/blog/tags/aw-scommunity"}')}}]);
