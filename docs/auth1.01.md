@@ -197,7 +197,7 @@ We start the simulator, where we are met by the authentication UI component:
 
 ![Step09](/img/steps/09.png)
 
-## Edit Inputs in App.js
+## Edit Inputs in ./src/index.js
 
 To do this, add signUpConfig
 
@@ -445,7 +445,7 @@ const authScreenLabels = {
     'Sign In Account': 'Войдите в систему',
     'Enter your email': 'Введите email',
     'Enter your password': 'Введите пароль',
-    Password: 'Пароль',
+    'Password': 'Пароль',
     'Sign In': 'Вход',
     'Please Sign In / Sign Up': 'Войти / Создать аккаунт',
     'Sign in to your account': 'Войдите в свой аккаунт',
@@ -454,7 +454,7 @@ const authScreenLabels = {
     'Confirm Sign Up': 'Подтвердите регистрацию',
     'Resend code': 'Еще отправить код',
     'Back to Sign In': 'Вернуться к входу',
-    Confirm: 'Подтвердить',
+    'Confirm': 'Подтвердить',
     'Confirmation Code': 'Код подтверждения',
     'Sign Out': 'Выход'
   }
