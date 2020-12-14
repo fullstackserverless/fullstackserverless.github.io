@@ -49,7 +49,6 @@ $ yarn ci
 Afler deploy
 
 ```javascript
-<meta property="og:image" content="https://fullstackserverless.github.io/img/fullstackserverless.png">
 <!-- Facebook Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
