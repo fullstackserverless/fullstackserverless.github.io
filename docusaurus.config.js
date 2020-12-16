@@ -8,8 +8,8 @@
  */
 
 module.exports = {
-  title: 'Sumerian',
-  tagline: 'Full Stack Serverless application = React Native + AWS Amplify',
+  title: 'Sumerian school',
+  tagline: 'School of programming',
   url: 'https://fullstackserverless.github.io',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
@@ -17,12 +17,12 @@ module.exports = {
   projectName: 'fullstackserverless.github.io',
   themeConfig: {
     navbar: {
-      title: 'Sumerian',
+      title: 'Sumerian school',
       logo: {
         alt: 'React Native Village Logo',
         src: 'img/logo.png'
       },
-      links: [
+      items: [
         {
           to: 'docs/startup00',
           activeBasePath: 'docs',
@@ -116,6 +116,7 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} @playra. Built with Docusaurus.`
     }
   },
+  themes: ['@docusaurus/theme-live-codeblock'],
   presets: [
     [
       '@docusaurus/preset-classic',
