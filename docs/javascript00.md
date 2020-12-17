@@ -3,6 +3,8 @@ id: javascript00
 title: Java Script Camp
 sidebar_label: Java Script Camp
 ---
+import YouTube from 'react-youtube';
+
 
 ## Online scout camp
 
@@ -13,6 +15,12 @@ On January 4, from 17-00 Moscow time, our school Sumerian School switches to onl
 Get your JavaScript badge scout.
 
 ![Camp](https://media.giphy.com/media/MOQG4QYC2MRSU/giphy.gif)
+
+## Video
+
+
+<YouTube videoId="ynySIutZh3w" />
+
 
 ## Purpose of the program
 
