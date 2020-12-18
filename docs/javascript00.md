@@ -74,6 +74,14 @@ Subscribe to the entire [calendar](http://p14-caldav.icloud.com/published/2/MTYy
 
 [Author](https://career.habr.com/hackathon-unicorn) of the Java Script course is the creator of the first [React Native](https://react-native-village.github.io/docs/start000) training course on the Russian Internet , as well as the first Russian blogger-programmer in the [AWS Comunity Builders](https://aws.amazon.com/ru/developer/community/community-builders/) program from Amazon.
 
+## Reviews
+
+>"This AWS Community Builder music video is on a whole other level 🔥😅
+ It's for a course on mobile development in the React Native / Type Script / AWS Amplify stack and for certification in AWS Certification. Worth checking out!" 
+ 
+ – say [Nader Dabit](https://twitter.com/dabit3)
+
+
 ## Learning process
 
 Training takes place in the [Discord](https://discord.gg/6GDAfXn) application , in a secret java-script chat, available to you after you pay for a JavaScript Camp subscription.
