@@ -82,11 +82,12 @@ function Home() {
       showinfo: 0
     }
   }
+
   const { videoContainer, player, heroBanner, buttons, getStarted } = styles
   return (
     <Layout title={`${siteConfig.title}`} description="React Native + AWS Amplify = Fullstackserverless">
       <div className={videoContainer}>
-        <YouTube videoId="9CNmJda6gAk" opts={opts} className={player} />
+        <YouTube videoId="ynySIutZh3w" opts={opts} className={player} />
       </div>
       <main>
         {features && features.length && (
@@ -119,13 +120,13 @@ function Home() {
   )
 }
 
-//<Iframe
-//url="https://us-west-2.sumerian.aws/4cad7c45d1994504a01994050c1f5271.scene"
-//width="100%"
-//height="600"
-//id="myId"
-//className="myClassname"
-//display="initial"
-//position="relative"
-///>
+// <Iframe
+// url="https://us-west-2.sumerian.aws/4cad7c45d1994504a01994050c1f5271.scene"
+// width="100%"
+// height="600"
+// id="myId"
+// className="myClassname"
+// display="initial"
+// position="relative"
+/// >
 export default Home

@@ -15,7 +15,13 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'fullstackserverless',
   projectName: 'fullstackserverless.github.io',
+  clientModules: [require.resolve('./snackPlayerInitializer.js')],
+  scripts: [{ src: 'https://snack.expo.io/embed.js', defer: true }],
   themeConfig: {
+    googleAnalytics: {
+      trackingID: 'G-6JC67BBG34',
+      anonymizeIP: true // Should IPs be anonymized?
+    },
     navbar: {
       title: 'Sumerian school',
       logo: {
@@ -123,6 +129,8 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
+          // eslint-disable-next-line global-require
+          remarkPlugins: [require('./plugins/remark-snackplayer')],
           editUrl: 'https://github.com/facebook/docusaurus/edit/master/website/'
         },
         theme: {

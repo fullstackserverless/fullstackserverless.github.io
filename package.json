@@ -22,7 +22,8 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-iframe": "^1.8.0",
-    "react-youtube": "^7.11.2"
+    "react-youtube": "^7.11.2",
+    "remark-snackplayer": "^0.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
