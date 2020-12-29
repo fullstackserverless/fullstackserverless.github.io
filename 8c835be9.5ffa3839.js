@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[21],{88:function(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"AWS Community Builders","permalink":"/blog/01"},{"title":"React Native Developer","permalink":"/blog/00"}]}')}}]);
